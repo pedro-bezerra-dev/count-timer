@@ -26,4 +26,19 @@ body {
 #container {
   width: 70%;
   height: 100%;
+  padding: 6.5rem 0rem 1rem;
+}
+
+#container footer {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#container footer a {
+  color: #aaa;
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-decoration: none;
 }
