@@ -20,4 +20,71 @@
 
 #container header h1 span {
   color: var(--color-tertiary);
+  font-size: 4.5rem;
+}
+
+#container main {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#container main > p {
+  font-weight: 400;
+  text-align: center;
+  width: 90%;
+  margin-bottom: 9rem;
+}
+
+#container .buttons {
+  width: 80%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#container .buttons .button-left,
+#container .buttons .button-right {
+  width: 50%;
+  padding: 1.5rem;
+  height: 7rem;
+  background: transparent;
+  border: none;
+  color: var(--color-secondary);
+  transition: all .3s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#container .buttons .button-left {
+  border-right: solid 1px var(--color-secondary);
+}
+
+#container .buttons .button-right {
+  border-left: solid 1px var(--color-secondary);
+}
+
+#container .buttons .button-left p {
+  text-align: right;
+  font-weight: 600;
+  line-height: 2.4rem;
+}
+
+#container .buttons .button-right p {
+  text-align: left;
+  font-weight: 600;
+  line-height: 2.4rem;
+}
+
+#container .buttons .button-left:hover,
+#container .buttons .button-right:hover {
+  border: solid 1px var(--color-secondary);
+  cursor: pointer;
+  transition: all .3s;
 }
