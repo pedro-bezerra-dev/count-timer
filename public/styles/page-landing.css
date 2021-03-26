@@ -56,6 +56,7 @@
   border: none;
   color: var(--color-secondary);
   transition: all .3s;
+  text-decoration: none;
 
   display: flex;
   align-items: center;
@@ -84,7 +85,7 @@
 
 #container .buttons .button-left:hover,
 #container .buttons .button-right:hover {
-  border: solid 1px var(--color-secondary);
+  color: rgba(14, 20, 40, 0.8);
   cursor: pointer;
   transition: all .3s;
 }
