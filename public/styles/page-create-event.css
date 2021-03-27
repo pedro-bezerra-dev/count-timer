@@ -1,11 +1,9 @@
 #container main {
   width: 100%;
   min-height: 70vh;
-  max-height: 70vh;
-  overflow: scroll;
   background: rgba(255, 253, 253, 0.5);
   border-radius: 15px;
-  padding: 4rem;
+  padding: 3rem;
 }
 
 #container main h1 {
@@ -49,7 +47,7 @@
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  margin: 2rem 0;
+  margin-top: 2rem;
   color: var(--color-primary);
   transition: .2s;
   cursor: pointer;

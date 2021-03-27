@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Count Time | Your Event Manager</title>
+
+	<link rel="shortcut icon" href="../public/images/logo.svg" type="image/x-icon">
+	<link rel="stylesheet" href="../public/styles/main.css">
+	<link rel="stylesheet" href="../public/styles/header.css">
+	<link rel="stylesheet" href="../public/styles/page-event.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
+</head>
+<body>
+	<div id="container">
+		<header>
+			<a href="./index.html">Count<br><span>Timer</span></a>
+      <a href="./page-events.html" class="header-button">My Events</a>
+		</header>
+
+		<main>
+      <form method="POST" class="search-event-form">
+        <fieldset>
+          <div class="input-block">
+            <select name="event-year" id="event-year" required>
+              <option value="" se>Year</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+            </select>
+            <img src="/public/images/arrow-down.svg" alt="select-year">
+          </div>
+          <div class="input-block">
+            <select name="event-month" id="event-month" aria-placeholder="jlsadf" required>
+              <option value="" selected>Month</option>
+              <option value="jan">Janeiro</option>
+              <option value="fev">Fevereiro</option>
+              <option value="mar">Março</option>
+              <option value="abr">Abril</option>
+              <option value="jun">Junho</option>
+            </select>
+            <img src="/public/images/arrow-down.svg" alt="select-month">
+          </div>
+        </fieldset>
+      </form>
+
+      <section>
+      <h1>CREATE NEW EVENT</h1>
+      </section>
+		</main>
+
+		<footer>
+			<section>
+				<a href="https://github.com/pedro-henrique-sb/" target="_blank">pedro_dev 2021 ©</a>
+			</section>
+		</footer>
+	</div>
+</body>
+</html>
