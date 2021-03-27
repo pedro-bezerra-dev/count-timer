@@ -15,7 +15,8 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   width: 100vw;
   background: linear-gradient(var(--background-linear-gradient));
   display: flex;
@@ -26,7 +27,7 @@ body {
 #container {
   width: 70%;
   height: 100%;
-  padding: 4rem 0rem 4rem;
+  padding: 4rem 0rem 6rem;
 }
 
 #container footer {

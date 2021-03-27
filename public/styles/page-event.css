@@ -39,3 +39,59 @@
   right: 10%;
   transform: translateY(-50%);
 }
+
+#container .events-container {
+  margin-top: 2.5rem;
+}
+
+#container .event-container {
+  background: var(--color-tertiary);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  position: relative;
+}
+
+#container .event-container + .event-container {
+  margin-top: 2.5rem;
+}
+
+#container .event-container header {
+  margin-bottom: 1.5rem;
+}
+
+#container .event-container header h2 {
+  font-weight: 600;
+  line-height: 2.4rem;
+  font-size: 2rem;
+  margin: 0;
+}
+
+#container .event-container header a {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  transition: .2s;
+}
+
+#container .event-container header a:hover {
+  opacity: .75;
+  transition: .2s;
+}
+
+#container .event-container p {
+  margin-bottom: 2rem;
+}
+
+#container .event-container p span {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+#container .event-container .progress-bar {
+  border-radius: 1.5rem;
+  width: calc(var(--percentage) - 2rem);
+  height: 1.5rem;
+  background: var(--color-primary);
+  position: absolute;
+  bottom: .5rem;
+  left: 1rem;
+}
