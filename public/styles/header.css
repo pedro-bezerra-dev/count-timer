@@ -1,23 +1,26 @@
 #container header {
   width: 100%;
+  margin-bottom: 4rem;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-#container header h2,
+#container header a,
 #container header span {
   font-size: 3rem;
   font-weight: 600;
   line-height: 3rem;
+  color: var(--color-secondary);
+  text-decoration: none;
 }
 
 #container header span {
   color: var(--color-tertiary);
 }
 
-#container header a {
+#container header .header-button {
   text-decoration: none;
   font-weight: 600;
   font-size: 1.4rem;
@@ -26,4 +29,9 @@
   padding: 1.5rem 1rem;
   border: solid 1px var(--color-secondary);
   border-radius: 15px;
+}
+
+#container header .header-button:hover {
+  color: rgba(14, 20, 40, 0.8);
+  border: solid 1px rgba(14, 20, 40, 0.8);
 }
