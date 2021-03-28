@@ -20,24 +20,24 @@ body {
   width: 100vw;
   background: linear-gradient(var(--background-linear-gradient));
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 #container {
   width: 70%;
+  min-height: 95vh;
   height: 100%;
-  padding: 4rem 0rem 6rem;
+  padding: 4rem 0;
 }
 
-#container footer {
-  position: fixed;
+body footer {
+  position: relative;
   bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
-#container footer a {
+body footer a {
   color: #aaa;
   font-weight: 600;
   font-size: 1.3rem;
