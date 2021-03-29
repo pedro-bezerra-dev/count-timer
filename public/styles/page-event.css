@@ -1,0 +1,61 @@
+#container main {
+  width: 100%;
+  min-height: 70vh;
+  background: rgba(255, 253, 253, 0.5);
+  border-radius: 15px;
+  padding: 4rem 3rem;
+}
+
+#container main h1,
+#container main h1 span {
+  font-size: 3.3rem;
+  font-weight: 600;
+  letter-spacing: 16%;
+}
+
+#container main h1 {
+  width: 100%;
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+#container main h1 span {
+  letter-spacing: .5rem;
+}
+
+#container #counter {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+
+  height: 7.5rem;
+}
+
+#container #counter .counter-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#container #counter .counter-unit + .counter-unit .unit-value {
+  border-left: solid 2px var(--color-secondary);
+}
+
+#container #counter .counter-unit .unit-value {
+  font-size: 3.3rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 4.9rem;
+  width: 100%;
+}
+
+#container #counter .counter-unit .unit-description {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.8rem;
+  text-align: center;
+}
+
+#container #counter #minute-unit {
+  color: var(--color-tertiary);
+}
