@@ -90,3 +90,7 @@
   width: var(--percentage);
 }
 
+#container main .buttons {
+  width: 100%;
+  margin-top: 4rem;
+}
