@@ -1,4 +1,4 @@
-#container .event-container .progress-bar {
+#container .progress-bar {
   border-radius: 1.5rem;
   width: calc(var(--percentage) - 2rem);
   height: 1.5rem;
