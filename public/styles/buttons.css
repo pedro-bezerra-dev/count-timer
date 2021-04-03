@@ -48,3 +48,10 @@
   cursor: pointer;
   transition: all .3s;
 }
+
+@media(min-width: 760px) {
+  #container .buttons .button-left,
+  #container .buttons .button-right {
+    font-size: 2rem;
+  }
+}
