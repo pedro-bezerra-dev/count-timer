@@ -7,6 +7,10 @@
   justify-content: space-between;
 }
 
+#container header .header-back-button {
+  display: none;
+}
+
 #container header a,
 #container header span {
   font-size: 3rem;
@@ -39,5 +43,11 @@
 @media(min-width: 760px) {
   #container header {
     margin-bottom: 6rem;
+  }
+}
+
+@media(min-width: 1280px) {
+  #container header .header-back-button {
+    display: inline;
   }
 }
