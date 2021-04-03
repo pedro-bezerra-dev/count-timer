@@ -85,3 +85,17 @@
   color: var(--color-primary);
   font-weight: 600;
 }
+
+@media(min-width: 760px) {
+  #container .search-event-form .input-block select {
+    padding: 2rem;
+  }
+
+  #container .event-container {
+    padding: 3rem;
+  }
+
+  #container .event-container header h2 {
+    font-size: 2.5rem;
+  }
+}
