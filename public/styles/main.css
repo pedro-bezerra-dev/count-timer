@@ -32,6 +32,10 @@ body {
   padding: 4rem 0;
 }
 
+#container .image-home-desktop {
+  display: none;
+}
+
 body footer {
   position: relative;
   bottom: 1.5rem;

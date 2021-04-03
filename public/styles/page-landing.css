@@ -68,3 +68,32 @@
     margin-bottom: 10rem;
   }
 }
+
+@media(min-width: 1280px) {
+  #container {
+    width: 35%;
+    position: relative;
+    top: 4vh;
+    left: -25%;
+  }
+
+  #container header .logo {
+    display: none;
+  }
+
+  #container header h1,
+  #container header h1 span {
+    font-size: 6rem;
+  }
+
+  body .image-home-desktop {
+    display: flex;
+    position: absolute;
+    top: 3rem;
+    right: 2rem;
+  }
+
+  body .image-home-desktop img {
+    height: 90vh;
+  }
+}
