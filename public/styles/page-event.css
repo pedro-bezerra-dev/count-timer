@@ -94,3 +94,26 @@
   width: 100%;
   margin-top: 4rem;
 }
+
+@media(min-width: 760px) {
+  #container main {
+    padding: 5rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+
+  #container main h1,
+  #container main h1 span,
+  #container #counter .counter-unit .unit-value {
+    font-size: 4rem;
+  }
+
+  #container #counter .counter-unit .unit-description {
+    font-size: 1.2rem;
+  }
+
+  #container #counter + p {
+    font-size: 2rem;
+  }
+}

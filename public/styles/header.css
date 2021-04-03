@@ -35,3 +35,9 @@
   color: rgba(14, 20, 40, 0.8);
   border: solid 1px rgba(14, 20, 40, 0.8);
 }
+
+@media(min-width: 760px) {
+  #container header {
+    margin-bottom: 6rem;
+  }
+}
