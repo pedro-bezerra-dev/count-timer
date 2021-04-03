@@ -58,3 +58,26 @@
               -2px -2px 10px rgba(255, 253, 253, 0.5);
   transition: .2s;
 }
+
+@media(min-width: 760px) {
+  #container header {
+    margin-bottom: 6rem;
+  }
+
+  #container main {
+    padding: 5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #container main h1 {
+    font-size: 3rem;
+  }
+
+  #container main .create-event-form .button-submit {
+    margin-top: 2.5rem;
+    width: 40%;
+    font-size: 1.8rem;
+  }
+}
