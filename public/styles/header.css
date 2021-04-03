@@ -18,6 +18,7 @@
   line-height: 3rem;
   color: var(--color-secondary);
   text-decoration: none;
+  cursor: pointer;
 }
 
 #container header span {
@@ -49,5 +50,10 @@
 @media(min-width: 1280px) {
   #container header .header-back-button {
     display: inline;
+  }
+
+  #container header .header-back-button:hover img {
+    opacity: .8;
+    transition: .2s;
   }
 }
