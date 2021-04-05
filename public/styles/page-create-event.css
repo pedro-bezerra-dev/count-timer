@@ -77,3 +77,36 @@
     font-size: 1.8rem;
   }
 }
+
+@media(min-width: 1280px) {
+  #container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  #container main {
+    width: 70%;
+  }
+
+  #container .create-event-form fieldset {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
+    grid-template-areas: 
+    "event-name event-name"
+    "event-date event-hour";
+  }
+
+  #container .create-event-form fieldset .input-block.event-name {
+    grid-area: event-name;
+  }
+
+  #container .create-event-form fieldset .input-block.event-date {
+    grid-area: event-date;
+  }
+
+  #container .create-event-form fieldset .input-block.event-hour {
+    grid-area: event-hour;
+  }
+}
