@@ -9,13 +9,14 @@
 	<link rel="shortcut icon" href="../public/images/logo.svg" type="image/x-icon">
 	<link rel="stylesheet" href="../public/styles/main.css">
 	<link rel="stylesheet" href="../public/styles/header.css">
+	<link rel="stylesheet" href="../public/styles/animations.css">
 	<link rel="stylesheet" href="../public/styles/page-create-event.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
 </head>
 <body>
 	<div id="container">
-		<header>
+		<header class="slidetodown">
 			<a onclick="history.back()" class="header-back-button">
 				<img src="/public/images/arrow-back.svg" alt="link to back">
 			</a>
@@ -23,7 +24,7 @@
       <a href="./page-events.html" class="header-button">My Events</a>
 		</header>
 
-		<main>
+		<main class="slidetoright">
       <h1>CREATE NEW EVENT</h1>
       <form method="POST" class="create-event-form">
         <fieldset>
