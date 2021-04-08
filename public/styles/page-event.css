@@ -56,7 +56,8 @@
   text-align: center;
 }
 
-#container #counter #minute-unit {
+#container #counter #minute-unit,
+#container #counter #second-unit {
   color: var(--color-tertiary);
 }
 
@@ -71,6 +72,10 @@
 #container #counter + p span {
   font-weight: 600;
   color: var(--color-tertiary);
+}
+
+#container #counter #second-unit {
+  display: none;
 }
 
 #container main .container-progress-bar {
@@ -92,7 +97,6 @@
 
 #container main .buttons {
   width: 100%;
-  margin-top: 4rem;
 }
 
 @media(min-width: 760px) {

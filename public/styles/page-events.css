@@ -77,10 +77,6 @@
   transition: .2s;
 }
 
-#container .event-container p {
-  margin-bottom: 2rem;
-}
-
 #container .event-container p span {
   color: var(--color-primary);
   font-weight: 600;
