@@ -9,7 +9,6 @@
 	<link rel="shortcut icon" href="../public/images/logo.svg" type="image/x-icon">
 	<link rel="stylesheet" href="../public/styles/main.css">
 	<link rel="stylesheet" href="../public/styles/header.css">
-	<link rel="stylesheet" href="../public/styles/progress-bar.css">
 	<link rel="stylesheet" href="../public/styles/page-event.css">
 	<link rel="stylesheet" href="../public/styles/animations.css">
 	<link rel="stylesheet" href="../public/styles/buttons.css">
@@ -30,26 +29,27 @@
       <h1>You have<span>...</span></h1>
       <section id="counter">
         <div class="counter-unit" id="month-unit">
-          <h2 class="unit-value" id="month-value">01</h2>
+          <h2 class="unit-value" id="month-value"></h2>
           <p class="unit-description">Month(s)</p>
         </div>
-        <div class="counter-unit" id="dat-unit">
-          <h2 class="unit-value" id="day-value">02</h2>
+        <div class="counter-unit" id="day-unit">
+          <h2 class="unit-value" id="day-value"></h2>
           <p class="unit-description">Day(s)</p>
         </div>
         <div class="counter-unit" id="hour-unit">
-          <h2 class="unit-value" id="hour-value">03</h2>
+          <h2 class="unit-value" id="hour-value"></h2>
           <p class="unit-description">Hour(s)</p>
         </div>
         <div class="counter-unit" id="minute-unit">
-          <h2 class="unit-value" id="minute-value">04</h2>
+          <h2 class="unit-value" id="minute-value"></h2>
           <p class="unit-description">Minute(s)</p>
+        </div>
+				<div class="counter-unit" id="second-unit">
+          <h2 class="unit-value" id="second-value"></h2>
+          <p class="unit-description">Second(s)</p>
         </div>
       </section>
       <p>before starting the <span>event_name</span></p>
-			<div class="container-progress-bar">
-      	<div class="progress-bar" style="--percentage: 100%"></div>
-			</div>
 			<section class="buttons">
 				<a href="page-events.html" type="button" class="button-left">
 					<p>TIRED OF WAITING</p>
@@ -66,5 +66,7 @@
 			<a href="https://github.com/pedro-henrique-sb/" target="_blank">pedro_dev 2021 ©</a>
 		</section>
 	</footer>
+
+	<script src="/public/scripts/counter.js"></script>
 </body>
 </html>
