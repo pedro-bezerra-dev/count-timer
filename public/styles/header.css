@@ -44,6 +44,16 @@
 @media(min-width: 760px) {
   #container header {
     margin-bottom: 6rem;
-    justify-content: center;
+  }
+}
+
+@media(min-width: 1280px) {
+  #container header .header-back-button {
+    display: inline;
+  }
+
+  #container header .header-back-button:hover img {
+    opacity: .8;
+    transition: .2s;
   }
 }
