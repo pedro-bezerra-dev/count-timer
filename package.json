@@ -1,0 +1,20 @@
+{
+  "name": "count-timer",
+  "version": "1.0.0",
+  "description": "This repository contains an application that manages your future events such as meetings, parties, lectures, etc. Of course, with a nice interface.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedro-henrique-sb/count-time.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pedro-henrique-sb/count-time/issues"
+  },
+  "homepage": "https://github.com/pedro-henrique-sb/count-time#readme"
+}
