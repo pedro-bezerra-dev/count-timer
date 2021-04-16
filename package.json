@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/pedro-henrique-sb/count-time/issues"
   },
-  "homepage": "https://github.com/pedro-henrique-sb/count-time#readme"
+  "homepage": "https://github.com/pedro-henrique-sb/count-time#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
