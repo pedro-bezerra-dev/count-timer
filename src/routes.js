@@ -1,22 +1,22 @@
 const routes = {
   index(req, res) {
-    res.sendFile(__dirname + '/view/index.html')
+    res.render('index.html')
   },
 
   pageCreateEvent(req, res) {
-    res.sendFile(__dirname + '/view/page-create-event.html')
+    res.render('page-create-event.html')
   },
 
   pageEvent(req, res) {
-    res.sendFile(__dirname + '/view/page-event.html')
+    res.render('page-event.html')
   },
 
   pageEvents(req, res) {
-    res.sendFile(__dirname + '/view/page-events.html')
+    res.render('page-events.html')
   },
 
   pageSucess(req, res) {
-    res.sendFile(__dirname + '/view/page-sucess.html')
+    res.render('page-sucess.html')
   },
 }
 
