@@ -2,8 +2,15 @@
 const express = require('express')
 const app = express()
 const port = 3000
-
 const routes = require('./routes.js')
+
+const nunjucks = require('nunjucks')
+
+//configuring template engine
+nunjucks.configure('src/view', {
+  autoescape: true,
+  express: app
+})
 
 // static files
 app.use(express.static('public'))
