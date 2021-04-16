@@ -2,7 +2,7 @@
   "name": "count-timer",
   "version": "1.0.0",
   "description": "This repository contains an application that manages your future events such as meetings, parties, lectures, etc. Of course, with a nice interface.",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js"
   },
