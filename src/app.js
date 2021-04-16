@@ -8,6 +8,9 @@ const routes = require('./routes.js')
 // static files
 app.use(express.static('public'))
 
+// allowing encrypted requests
+app.use(express.urlencoded({extended: true}))
+
 // routes
 app.get('/', routes.index)
 app.get('/create-event', routes.pageCreateEvent)
