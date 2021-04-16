@@ -3,9 +3,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+const routes = require('./routes.js')
+
+app.get('/', routes.index)
 
 app.listen(port, () => {
   console.log(`Working in port ${port}`)
