@@ -15,6 +15,18 @@
   background: url(/images/background-page-sucess.svg);
   background-size: contain;
   background-repeat: no-repeat;
+  flex-direction: column;
+}
+
+#container main .confirmation img {
+  width: 9rem;
+  position: relative;
+  top: 20%;
+}
+
+#container main .text-block {
+  position: relative;
+  top: 50%;
 }
 
 #container .text-block h1 {
@@ -30,6 +42,16 @@
   line-height: 2.7rem;
 }
 
+@media(min-width: 650px) {
+  #container main .confirmation img {
+    top: 0;
+  }
+
+  #container main .text-block {
+    top: 0;
+  }
+}
+
 @media(min-width: 760px) {
   #container .text-block h1 {
     font-size: 3rem;
@@ -37,26 +59,31 @@
 }
 
 @media(min-width: 1280px) {
+  #container {
+    min-height: 0;
+    margin: 0;
+  }
+
   #container main {
     width: 100%;
     height: 100%;
   }
   #container main .confirmation {
     width: 100%;
-    height: 100%;
     background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   #container main .confirmation img {
     position: relative;
-    top: -7rem;
+    width: initial;
   }
 
   #container main .text-block {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
   }
 
   #container main .text-block h1 {
