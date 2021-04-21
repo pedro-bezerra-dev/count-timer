@@ -1,3 +1,5 @@
+const fakedata = require('./database/fakedata.js')
+
 const routes = {
   index(req, res) {
     res.render('index.html')
@@ -12,7 +14,7 @@ const routes = {
   },
 
   pageEvents(req, res) {
-    res.render('page-events.html')
+    res.render('page-events.html', { fakedata: fakedata[0].name })
   },
 
   pageSucess(req, res) {
