@@ -14,7 +14,7 @@ const routes = {
   },
 
   pageEvents(req, res) {
-    res.render('page-events.html', { fakedata: fakedata[0].name })
+    res.render('page-events.html')
   },
 
   pageSucess(req, res) {
