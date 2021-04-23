@@ -24,6 +24,7 @@ app.get('/create-event', routes.pageCreateEvent)
 app.get('/event', routes.pageEvent)
 app.get('/events', routes.pageEvents)
 app.get('/sucess', routes.pageSucess)
+app.get('/test', routes.pageTest)
 
 app.listen(port, () => {
   console.log(`Working in port ${port}`)

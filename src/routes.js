@@ -20,6 +20,10 @@ const routes = {
   pageSucess(req, res) {
     res.render('page-sucess.html')
   },
+
+  pageTest(req, res) {
+      res.render('test.html', { fakedata })
+  }
 }
 
 module.exports = routes
