@@ -36,3 +36,5 @@ function notifier({ title, body, icon}) {
     icon
   })
 }
+
+export { notifier, checkPermission };
