@@ -29,3 +29,10 @@ async function checkPermission() {
     }, 3000)
   }
 }
+
+function notifier({ title, body, icon}) {
+  const newNotification = new Notification(title, {
+    body,
+    icon
+  })
+}
