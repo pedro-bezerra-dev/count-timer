@@ -51,41 +51,30 @@
       </form>
 
       <section class="events-container">
+
+        {% for event in events %}
+
         <section class="event-container">
-          <header>
-            <h2>Festa</h2>
-            <a href="">EDIT</a>
-          </header>
-          <p>The event is scheduled to <span>03/08/2021</span></p>
+          <a href="/event?id={{ event.id }}">
+            <header>
+              <h2>{{ event.name }}</h2>
+              <a href="">EDIT</a>
+            </header>
+            <p>The event is scheduled to <span>{{ event.date }}</span></p>
+          </a>
         </section>
-        <section class="event-container">
-          <header>
-            <h2>Festa</h2>
-            <a href="">EDIT</a>
-          </header>
-          <p>The event is scheduled to <span>03/08/2021</span></p>
+
+        {% else %}
+
+        <section id="warning-without-events">
+          <h2>
+            <p>It looks like you don't have any events scheduled. What do you think of scheduling one now?</p>
+          </h2>
+          <a href="/create-event">Create Event</a>
         </section>
-        <section class="event-container">
-          <header>
-            <h2>Festa</h2>
-            <a href="">EDIT</a>
-          </header>
-          <p>The event is scheduled to <span>03/08/2021</span></p>
-        </section>
-        <section class="event-container">
-          <header>
-            <h2>Festa</h2>
-            <a href="">EDIT</a>
-          </header>
-          <p>The event is scheduled to <span>03/08/2021</span></p>
-        </section>
-        <section class="event-container">
-          <header>
-            <h2>Festa</h2>
-            <a href="">EDIT</a>
-          </header>
-          <p>The event is scheduled to <span>03/08/2021</span></p>
-        </section>
+
+        {% endfor %}
+
       </section>
 		</main>
 
