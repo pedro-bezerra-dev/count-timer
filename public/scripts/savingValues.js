@@ -1,4 +1,4 @@
-function handlingBackendData() {
+function handlingBackendData(eventsNames, eventsDates) {
   const allInputs = document.querySelectorAll('input[type="hidden"]')
   
   allInputs.forEach((input) => {
