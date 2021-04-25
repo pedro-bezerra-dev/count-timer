@@ -21,6 +21,7 @@ app.use(express.urlencoded({extended: true}))
 // routes
 app.get('/', routes.index)
 app.get('/create-event', routes.pageCreateEvent)
+app.post('/create-event', routes.createEvent)
 app.get('/event', routes.pageEvent)
 app.get('/events', routes.pageEvents)
 app.get('/sucess', routes.pageSucess)
