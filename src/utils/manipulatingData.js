@@ -7,4 +7,4 @@ function dataConverter(eventData) {
   return eventDate
 }
 
-module.exports = { dataConverter }
+module.exports = dataConverter
