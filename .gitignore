@@ -107,3 +107,6 @@ dist
 test.html
 test.js
 test.css
+
+# SQLite database
+database.sqlite
