@@ -49,7 +49,7 @@
           <p class="unit-description">Second(s)</p>
         </div>
       </section>
-      <p>before starting the <span>event_name</span></p>
+      <p>before starting the <span>{{ event.name }}</span></p>
 			<section class="buttons">
 				<a href="events" type="button" class="button-left">
 					<p>TIRED OF WAITING</p>
@@ -60,6 +60,9 @@
 			</section>
 		</main>
 
+		<input type="hidden" id="event-name" value="{{ event.name }}">
+		<input type="hidden" id="event-date" value="{{ event.date }}">
+
 	</div>
 	<footer>
 		<section>
@@ -67,6 +70,14 @@
 		</section>
 	</footer>
 
-	<script src="/scripts/counter.js"></script>
+	<script type="module">
+
+		import { counter } from '/scripts/counter.js'
+		
+		const eventName = document.querySelector('#event-name').value;
+		const eventDate = document.querySelector('#event-date').value;
+		counter(eventName, eventDate)
+
+	</script>
 </body>
 </html>
