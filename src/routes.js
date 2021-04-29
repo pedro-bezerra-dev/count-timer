@@ -24,7 +24,7 @@ const routes = {
       await createEvent(db, eventName, eventDate)
 
     } catch (error) {
-
+      console.log(error)
       res.send("Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues")
       
     }
@@ -32,8 +32,12 @@ const routes = {
     res.redirect('/sucess')
   },
 
-  pageEvent(req, res) {
-    res.render('page-event.html')
+  async pageEvent(req, res) {
+    const eventID = req.query.id
+    const db = await database
+    const event = await db.all(`SELECT * FROM events WHERE id=${eventID}`)
+
+    res.render('page-event.html', { event: event[0] })
   },
 
   async pageEvents(req, res) {
@@ -47,8 +51,6 @@ const routes = {
         const formatedDate = formatterDate(event.date)
         formatedDates.push(formatedDate)
       })
-
-      console.log(formatedDates)
 
       res.render('page-events.html', { events, formatedDates })
 
