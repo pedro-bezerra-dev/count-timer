@@ -52,7 +52,7 @@
 		</section>
 	</footer>
 
-	{% for event in allEvents %}
+		{% for event in allEvents %}
 			<input type="hidden" id="event-name{{ event.id }}" value="{{ event.name }}">
 			<input type="hidden" id="target-date{{ event.id }}" value="{{ event.date }}">
 		{% endfor %}
