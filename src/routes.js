@@ -57,12 +57,11 @@ const routes = {
   async pageEvent(req, res) {
     try {
 
-      const db = await database
-      const allEvents = await db.all('SELECT * FROM events')
-
+      
       const eventID = req.query.id
       const db = await database
       const event = await db.all(`SELECT * FROM events WHERE id=${eventID}`)
+      const allEvents = await db.all('SELECT * FROM events')
 
       res.render('page-event.html', { event: event[0], allEvents })
 
