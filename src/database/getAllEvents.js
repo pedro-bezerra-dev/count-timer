@@ -1,6 +1,6 @@
 const database = require('./database/dbInit.js')
 
-function allEvents() {
+async function allEvents() {
   const db = await database
   const allEvents = await db.all('SELECT * FROM events')
 
