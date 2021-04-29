@@ -6,14 +6,33 @@ const formatterDate = require('./utils/formatterDate.js')
 
 const routes = {
   async index(req, res) {
-    const db = await database
-    const allEvents = await db.all('SELECT * FROM events')
+    try {
 
-    res.render('index.html', { allEvents })
+      const db = await database
+      const allEvents = await db.all('SELECT * FROM events')
+
+      res.render('index.html', { allEvents })
+
+    } catch (error) {
+      
+      res.send("Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues")
+
+    }
   },
 
-  pageCreateEvent(req, res) {
-    res.render('page-create-event.html')
+  async pageCreateEvent(req, res) {
+    try {
+
+      const db = await database
+      const allEvents = await db.all('SELECT * FROM events')
+      
+      res.render('page-create-event.html', { allEvents })
+
+    } catch (error) {
+      
+      res.send("Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues")
+
+    }
   },
 
   async createEvent(req, res) {
