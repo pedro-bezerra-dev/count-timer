@@ -51,7 +51,7 @@ function counter(eventName, targetDate) {
       return elapsedTime;
     },
   
-    subSeconds() {    
+    subSeconds() {
       if(main.seconds > 0) {
         main.seconds -= 1;
       } else {

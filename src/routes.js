@@ -2,12 +2,14 @@ const fakedata = require('./database/fakedata.js')
 const dataConverter = require('./utils/manipulatingData.js')
 const database = require('./database/dbInit.js')
 const createEvent = require('./database/createEvent.js')
-const allEvents = require('./database/getAllEvents.js')
 const formatterDate = require('./utils/formatterDate.js')
 
 const routes = {
-  index(req, res) {
-    res.render('index.html')
+  async index(req, res) {
+    const db = await database
+    const allEvents = await db.all('SELECT * FROM events')
+
+    res.render('index.html', { allEvents })
   },
 
   pageCreateEvent(req, res) {
