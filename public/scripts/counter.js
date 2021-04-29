@@ -1,157 +1,165 @@
-// targetDate = [year, months, days, hours, minutes] | contains the date data of the event and comes from the server
-const targetDate = [2021,04,09,21,20];
+import { notifier } from './notifier.js'
 
-// functions for converting the date to seconds
+function counter(eventName, targetDate) {
 
-function secondsToMinutesAndMinutesToHours(arg) {
-  const result = Math.floor(arg / 60);
-  const remainder = arg % 60;
-
-  return [result, remainder];
-}
-
-function hoursToDays(hours) {
-  const days = Math.floor(hours / 24);
-  const remainder = hours % 24;
-
-  return [days, remainder];
-}
-
-function daysToMonths(days) {
-  const months = Math.floor(days / 30);
-  const remainder = days % 30;
-
-  return [months, remainder];
-}
-
-function findTheRemainingTimeInSeconds(target) {
-  const year = target[0];
-  const month = target[1];
-  const day = target[2];
-  const hour = target[3];
-  const min = target[4];
-
-  const start = new Date();
-  const end = new Date(year, month, day, hour, min);
-  const elapsedTime = Math.round((end.getTime() - start.getTime())/1000);
-
-  return elapsedTime;
-}
-
-// functions that update the page according to the timer
-
-function subSeconds() {
-  secsCamp.innerHTML = seconds;
-  minsCamp.innerHTML = minutes;
-  hoursCamp.innerHTML = hours;
-  daysCamp.innerHTML = days;
-  monthsCamp.innerHTML = months;
-
-  if(seconds > 0) {
-    seconds -= 1;
-  } else {
-    if(minsCamp.textContent == 0 && hoursCamp.textContent == 0 && daysCamp.textContent == 0 && monthsCamp.textContent == 0) {
-      clearInterval(clock);
-      alert('Seu evento chegou!');
-    } else {
-      seconds = 59;
-      subMinutes();
-    }
-  };
-};
-
-function subMinutes() {
-  if(minutes > 0) {
-    minutes -= 1;
-  } else {
-    if(hoursCamp.textContent == 0 && daysCamp.textContent == 0 && monthsCamp.textContent == 0) {
-      minsCamp.innerHTML = 0;
-    } else {
-      minutes = 59;
-      subHours();
-    }
-  };
-}
-
-function subHours() {
-  if(hours > 0) {
-    hours -= 1;
-  } else {
-    if(daysCamp.textContent == 0 && monthsCamp.textContent == 0) {
-      hoursCamp.innerHTML = 0;
-    } else {
-      hours = 23;
-      subDays();
-    }
-  };
-}
-
-function subDays() {
-  if(days > 0) {
-    days -= 1;
-  } else {
-    if(monthsCamp.textContent == 0) {
-      daysCamp.innerHTML = 0;
-    } else {
-      days = 29;
-      subMonths();
-    }
-  };
-}
-
-function subMonths() {
-  if(months > 0) {
-    months -= 1;
-  } else {
-    monthsCamp.innerHTML = 0;
-    return;
-  };
-  if(months == 0) {
-    hideMonthsField();
+  if(typeof(targetDate) == "string") {
+    targetDate = targetDate.split(',')
   }
+
+  const main = {
+    eventName,
+    targetDate,
+    seconds: null,
+    minutes: null,
+    hours: null,
+    days: null,
+    months: null,
+    interval: null,
+
+    secsCamp: document.querySelector('#second-value'),
+    minsCamp: document.querySelector('#minute-value'),
+    hoursCamp: document.querySelector('#hour-value'),
+    daysCamp: document.querySelector('#day-value'),
+    monthsCamp: document.querySelector('#month-value'),
+  
+    secondsToMinutesAndMinutesToHours(arg) {
+      const result = Math.floor(arg / 60);
+      const remainder = arg % 60;
+    
+      return [result, remainder];
+    },
+  
+    hoursToDays(hours) {
+      const days = Math.floor(hours / 24);
+      const remainder = hours % 24;
+    
+      return [days, remainder];
+    },
+  
+    daysToMonths(days) {
+      const months = Math.floor(days / 30);
+      const remainder = days % 30;
+    
+      return [months, remainder];
+    },
+  
+    findTheRemainingTimeInSeconds(target) {
+      const year = target[0];
+      const month = target[1];
+      const day = target[2];
+      const hour = target[3];
+      const min = target[4];
+    
+      const start = new Date();
+      const end = new Date(year, month, day, hour, min);
+      const elapsedTime = Math.round((end.getTime() - start.getTime())/1000);
+    
+      return elapsedTime;
+    },
+  
+    subSeconds() {
+      main.secsCamp.innerHTML = main.seconds;
+      main.minsCamp.innerHTML = main.minutes;
+      main.hoursCamp.innerHTML = main.hours;
+      main.daysCamp.innerHTML = main.days;
+      main.monthsCamp.innerHTML = main.months;
+    
+      if(main.seconds > 0) {
+        main.seconds -= 1;
+      } else {
+        if(main.minutes == 0 && main.hours == 0 && main.days == 0 && main.months == 0) {
+          clearInterval(main.interval);
+          notifier({title: "It's time!", body: `The ${main.eventName} already arrived!`, icon: 'images/logo.svg'})
+        } else {
+          main.seconds = 59;
+          main.subMinutes();
+        }
+      };
+    },
+  
+    subMinutes() {
+      if(main.minutes > 0) {
+        main.minutes -= 1;
+      } else {
+        if(main.hours == 0 && main.days == 0 && main.months == 0) {
+          main.minutes= 0;
+        } else {
+          main.minutes = 59;
+          main.subHours();
+        }
+      };
+    },
+  
+    subHours() {
+      main.minutes, main.hours, main.days, main.months
+  
+      if(main.hours > 0) {
+        main.hours -= 1;
+      } else {
+        if(main.days == 0 && main.months == 0) {
+          main.hours = 0;
+        } else {
+          main.hours = 23;
+          main.subDays();
+        }
+      };
+    },
+  
+    subDays() {
+      if(main.days > 0) {
+        main.days -= 1;
+      } else {
+        if(main.months== 0) {
+          main.days = 0;
+        } else {
+          main.days = 29;
+          main.subMonths();
+        }
+      };
+    },
+  
+    subMonths() {
+      if(main.months > 0) {
+        main.months -= 1;
+      } else {
+        main.months = 0;
+        return;
+      };
+    },
+
+    hideMonthsField() {
+      const secondsField = document.querySelector('#counter #second-unit');
+      const minutesField = document.querySelector('#counter #minute-unit');
+      const daysField = document.querySelector('#counter #day-value');
+      const monthsField = document.querySelector('#counter #month-unit');
+    
+      secondsField.style.display = 'flex';
+      minutesField.style.color = 'var(--color-secondary)';
+      daysField.style.border = 'none';
+      monthsField.style.display = 'none';
+    },
+  
+    makesItWork() {
+      main.seconds = main.findTheRemainingTimeInSeconds(main.targetDate);
+      main.minutes = main.secondsToMinutesAndMinutesToHours(main.seconds)[0];
+      main.seconds = main.secondsToMinutesAndMinutesToHours(main.seconds)[1];
+      main.hours = main.secondsToMinutesAndMinutesToHours(main.minutes)[0];
+      main.minutes = main.secondsToMinutesAndMinutesToHours(main.minutes)[1];
+      main.days = main.hoursToDays(main.hours)[0];
+      main.hours = main.hoursToDays(main.hours)[1];
+      main.months = main.daysToMonths(main.days)[0];
+      main.days = main.daysToMonths(main.days)[1];
+      
+      if(main.months == 0) {
+        main.hideMonthsField();
+      };
+  
+      main.interval = setInterval(() => main.subSeconds(), 1000);
+    }
+  };
+
+  main.makesItWork();
 }
 
-// function to hide the remaining months field if it is empty
 
-function hideMonthsField() {
-  const secondsField = document.querySelector('#counter #second-unit');
-  const minutesField = document.querySelector('#counter #minute-unit');
-  const daysField = document.querySelector('#counter #day-value');
-  const monthsField = document.querySelector('#counter #month-unit');
-
-  secondsField.style.display = 'flex';
-  minutesField.style.color = 'var(--color-secondary)';
-  daysField.style.border = 'none';
-  monthsField.style.display = 'none';
-}
-
-// declaration of variables
-
-var seconds = findTheRemainingTimeInSeconds(targetDate),
-minutes = 0,
-hours = 0,
-days = 0,
-months = 0
-
-var secsCamp = document.querySelector('#second-value'),
-minsCamp = document.querySelector('#minute-value'),
-hoursCamp = document.querySelector('#hour-value'),
-daysCamp = document.querySelector('#day-value'),
-monthsCamp = document.querySelector('#month-value')
-
-// working
-
-minutes = secondsToMinutesAndMinutesToHours(seconds)[0];
-seconds = secondsToMinutesAndMinutesToHours(seconds)[1];
-hours = secondsToMinutesAndMinutesToHours(minutes)[0];
-minutes = secondsToMinutesAndMinutesToHours(minutes)[1];
-days = hoursToDays(hours)[0];
-hours = hoursToDays(hours)[1];
-months = daysToMonths(days)[0];
-days = daysToMonths(days)[1];
-
-if(months == 0) {
-  hideMonthsField();
-};
-
-var clock = setInterval(() => subSeconds(), 1000);
+export { counter };
