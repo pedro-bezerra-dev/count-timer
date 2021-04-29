@@ -1,6 +1,10 @@
 const database = require('./database/dbInit.js')
 
-const db = await database
-const allEvents = await db.all('SELECT * FROM events')
+function allEvents() {
+  const db = await database
+  const allEvents = await db.all('SELECT * FROM events')
+
+  return allEvents
+}
 
 module.exports = allEvents
