@@ -85,7 +85,7 @@ const routes = {
         formatedDates.push(formatedDate)
       })
 
-      res.render('page-events.html', { events, formatedDates })
+      res.render('page-events.html', { events, formatedDates, allEvents: events })
 
     } catch (error) {
 

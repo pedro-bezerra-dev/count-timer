@@ -84,5 +84,35 @@
       <a href="https://github.com/pedro-henrique-sb/" target="_blank">pedro_dev 2021 ©</a>
     </section>
   </footer>
+
+  {% for event in allEvents %}
+	<input type="hidden" id="event-name{{ event.id }}" value="{{ event.name }}">
+	<input type="hidden" id="target-date{{ event.id }}" value="{{ event.date }}">
+	{% endfor %}
+
+	<script type="module">
+
+	import { counter } from '/scripts/counterHidden.js'
+	import { handlingBackendData } from '/scripts/savingValues.js'
+	import { notifier, checkPermission } from '/scripts/notifier.js'
+
+	// checking permission to send notifications
+	checkPermission()
+
+	// arrays for event names and dates
+	var eventsNames = [];
+	var eventsDates = [];
+
+	// saving all event data that came from the backend
+	handlingBackendData(eventsNames, eventsDates)
+
+	// generating a counter for each event
+	// targetDate = [year, months, days, hours, minutes] | contains the date data of the event and comes from the server
+	eventsDates.forEach((targetDate, index) => {
+		counter(eventsNames[index], targetDate);
+	})
+
+	</script>
+
 </body>
 </html>
