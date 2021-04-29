@@ -1,8 +1,16 @@
 function dataConverter(eventData) {
-  const date = eventData.date
-  const hour = eventData.hour
+  let date = eventData.date.split('-')
 
-  const eventDate = date.replace(/-/g, ',') + ',' + hour.replace(':', ',')
+  let month = Number(date[1])
+  month -= 1
+  month = '0' + String(month)
+
+  date.splice(1, 1, month)
+  date = date.join(',')
+
+  let hour = eventData.hour.replace(':', ',')
+
+  const eventDate = date + ',' + hour
   
   return eventDate
 }
