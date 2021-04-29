@@ -33,11 +33,19 @@ const routes = {
   },
 
   async pageEvent(req, res) {
-    const eventID = req.query.id
-    const db = await database
-    const event = await db.all(`SELECT * FROM events WHERE id=${eventID}`)
+    try {
 
-    res.render('page-event.html', { event: event[0] })
+      const eventID = req.query.id
+      const db = await database
+      const event = await db.all(`SELECT * FROM events WHERE id=${eventID}`)
+
+      res.render('page-event.html', { event: event[0] })
+
+    } catch (error) {
+      
+      res.send("Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues")
+
+    }
   },
 
   async pageEvents(req, res) {
@@ -56,7 +64,6 @@ const routes = {
 
     } catch (error) {
 
-      console.log(error)
       res.send("Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues")
       
     }
