@@ -2,6 +2,7 @@ const fakedata = require('./database/fakedata.js')
 const dataConverter = require('./utils/manipulatingData.js')
 const database = require('./database/dbInit.js')
 const createEvent = require('./database/createEvent.js')
+const allEvents = require('./database/getAllEvents.js')
 const formatterDate = require('./utils/formatterDate.js')
 
 const routes = {
