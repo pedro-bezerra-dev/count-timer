@@ -62,6 +62,7 @@
       import { counter } from '/scripts/counterHidden.js'
       import { handlingBackendData } from '/scripts/savingValues.js'
       import { notifier, checkPermission } from '/scripts/notifier.js'
+      import { defineMinimumDateLimit, defineMinimumHourLimit } from '/scripts/minValue.js'
 
 			// checking permission to send notifications
 			checkPermission()
@@ -78,6 +79,16 @@
 			eventsDates.forEach((targetDate, index) => {
 				counter(eventsNames[index], targetDate);
 			})
+
+			// setting limits for the date and time of new events
+			const minDate = defineMinimumDateLimit()
+			const minHour = defineMinimumHourLimit()
+
+			const inputDate = document.querySelector('#event-date')
+			const inputHour = document.querySelector('#event-hour')
+
+			inputDate.min = minDate
+			inputHour.min = minHour
 
     </script>
 
