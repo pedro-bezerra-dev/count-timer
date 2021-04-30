@@ -49,11 +49,11 @@ function counter(eventName, targetDate) {
       const elapsedTime = Math.round((end.getTime() - start.getTime())/1000);
 
       if(elapsedTime < 0) {
-        main.secsCamp.innerHTML = '0'
-        main.minsCamp.innerHTML = '0'
-        main.hoursCamp.innerHTML = '0'
-        main.daysCamp.innerHTML = '0'
-        main.monthsCamp.innerHTML = '0'
+        main.seconds = 0
+        main.minutes = 0
+        main.hours = 0
+        main.days = 0
+        main.months = 0
 
         return undefined
       }
