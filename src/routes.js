@@ -46,7 +46,7 @@ const routes = {
       await createEvent(db, eventName, eventDate)
 
     } catch (error) {
-      console.log(error)
+
       res.send("Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues")
       
     }
