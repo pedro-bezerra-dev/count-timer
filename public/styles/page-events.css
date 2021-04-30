@@ -46,11 +46,6 @@
   transition: .2s;
 }
 
-#container .event-container p span {
-  color: var(--color-primary);
-  font-weight: 600;
-}
-
 #container #warning-without-events {
   padding: 10% 20%;
   color: #4f4f4f;

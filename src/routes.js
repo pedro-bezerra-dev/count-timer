@@ -78,13 +78,8 @@ const routes = {
       const comand = 'SELECT * FROM events;'
       const db = await database
       const events = await db.all(comand)
-      var formatedDates = []
-      events.forEach(event => {
-        const formatedDate = formatterDate(event.date)
-        formatedDates.push(formatedDate)
-      })
 
-      res.render('page-events.html', { events, formatedDates, allEvents: events })
+      res.render('page-events.html', { events, allEvents: events })
 
     } catch (error) {
 
