@@ -7,7 +7,7 @@ async function addEvent(db, name, date) {
       "${name}",
       "${date}"
     );
-  `)
+  `);
 }
 
-module.exports = addEvent
+module.exports = addEvent;
