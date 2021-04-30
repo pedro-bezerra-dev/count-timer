@@ -6,11 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Count Time | Your Event Manager</title>
 
-	<link rel="shortcut icon" href="/public/images/logo.svg" type="image/x-icon">
-	<link rel="stylesheet" href="/public/styles/main.css">
-	<link rel="stylesheet" href="/public/styles/header.css">
-	<link rel="stylesheet" href="/public/styles/animations.css">
-	<link rel="stylesheet" href="/public/styles/page-events.css">
+	<link rel="shortcut icon" href="/images/logo.svg" type="image/x-icon">
+	<link rel="stylesheet" href="/styles/main.css">
+	<link rel="stylesheet" href="/styles/header.css">
+	<link rel="stylesheet" href="/styles/animations.css">
+	<link rel="stylesheet" href="/styles/page-events.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
 </head>
@@ -18,50 +18,66 @@
 	<div id="container">
 		<header class="slidetodown">
 			<a onclick="history.back()" class="header-back-button">
-				<img src="/public/images/arrow-back.svg" alt="link to back">
+				<img src="/images/arrow-back.svg" alt="link to back">
 			</a>
-			<a href="./index.html">Count<br><span>Timer</span></a>
-      <a href="./page-create-event.html" class="header-button">Create Event</a>
+			<a href="/">Count<br><span>Timer</span></a>
+      <a href="create-event" class="header-button">Create Event</a>
 		</header>
 
 		<main class="fadeup">
+<<<<<<< HEAD
+=======
+      <form method="POST" class="search-event-form">
+        <fieldset>
+          <div class="input-block">
+            <select name="event-year" id="event-year" required>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+            </select>
+            <img src="/images/arrow-down.svg" alt="select-year">
+          </div>
+          <div class="input-block">
+            <select name="event-month" id="event-month" required>
+              <option value="jan">Janeiro</option>
+              <option value="fev">Fevereiro</option>
+              <option value="mar">Março</option>
+              <option value="abr">Abril</option>
+              <option value="jun">Junho</option>
+            </select>
+            <img src="/images/arrow-down.svg" alt="select-month">
+          </div>
+        </fieldset>
+      </form>
+>>>>>>> 929f09a96fa4480745c84e3d34f8a2a4c86bb1cb
 
       <section class="events-container">
+
+        {% for event in events %}
+
         <section class="event-container">
-          <header>
-            <h2>Festa</h2>
-            <a href="">EDIT</a>
-          </header>
-          <p>The event is scheduled to <span>03/08/2021</span></p>
+          <a href="/event?id={{ event.id }}">
+            <header>
+              <h2>{{ event.name }}</h2>
+              <a href="">EDIT</a>
+            </header>
+            <p>The event is scheduled to <span>{{ formatedDates[loop.index0] }}</span></p>
+          </a>
         </section>
-        <section class="event-container">
-          <header>
-            <h2>Festa</h2>
-            <a href="">EDIT</a>
-          </header>
-          <p>The event is scheduled to <span>03/08/2021</span></p>
+
+        {% else %}
+
+        <section id="warning-without-events">
+          <h2>
+            <p>It looks like you don't have any events scheduled. What do you think of scheduling one now?</p>
+          </h2>
+          <a href="/create-event">Create Event</a>
         </section>
-        <section class="event-container">
-          <header>
-            <h2>Festa</h2>
-            <a href="">EDIT</a>
-          </header>
-          <p>The event is scheduled to <span>03/08/2021</span></p>
-        </section>
-        <section class="event-container">
-          <header>
-            <h2>Festa</h2>
-            <a href="">EDIT</a>
-          </header>
-          <p>The event is scheduled to <span>03/08/2021</span></p>
-        </section>
-        <section class="event-container">
-          <header>
-            <h2>Festa</h2>
-            <a href="">EDIT</a>
-          </header>
-          <p>The event is scheduled to <span>03/08/2021</span></p>
-        </section>
+
+        {% endfor %}
+
       </section>
 
 		</main>
@@ -72,5 +88,35 @@
       <a href="https://github.com/pedro-henrique-sb/" target="_blank">pedro_dev 2021 ©</a>
     </section>
   </footer>
+
+  {% for event in allEvents %}
+	<input type="hidden" id="event-name{{ event.id }}" value="{{ event.name }}">
+	<input type="hidden" id="target-date{{ event.id }}" value="{{ event.date }}">
+	{% endfor %}
+
+	<script type="module">
+
+	import { counter } from '/scripts/counterHidden.js'
+	import { handlingBackendData } from '/scripts/savingValues.js'
+	import { notifier, checkPermission } from '/scripts/notifier.js'
+
+	// checking permission to send notifications
+	checkPermission()
+
+	// arrays for event names and dates
+	var eventsNames = [];
+	var eventsDates = [];
+
+	// saving all event data that came from the backend
+	handlingBackendData(eventsNames, eventsDates)
+
+	// generating a counter for each event
+	// targetDate = [year, months, days, hours, minutes] | contains the date data of the event and comes from the server
+	eventsDates.forEach((targetDate, index) => {
+		counter(eventsNames[index], targetDate);
+	})
+
+	</script>
+
 </body>
 </html>

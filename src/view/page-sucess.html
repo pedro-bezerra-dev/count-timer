@@ -6,10 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Count Time | Your Event Manager</title>
 
-	<link rel="shortcut icon" href="/public/images/logo.svg" type="image/x-icon">
-	<link rel="stylesheet" href="/public/styles/main.css">
-	<link rel="stylesheet" href="/public/styles/animations.css">
-	<link rel="stylesheet" href="/public/styles/page-sucess.css">
+	<link rel="shortcut icon" href="/images/logo.svg" type="image/x-icon">
+	<link rel="stylesheet" href="/styles/main.css">
+	<link rel="stylesheet" href="/styles/animations.css">
+	<link rel="stylesheet" href="/styles/page-sucess.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
 </head>
@@ -18,13 +18,18 @@
 		
 		<main class="fadeup">
       <section class="confirmation">
-        <img src="/public/images/checked.svg" alt="confirmation of sucess">
+        <img src="/images/checked.svg" alt="confirmation of sucess">
+				<section class="text-block">
+					<h1>Amazing!</h1>
+					<p>Your event is already scheduled</p>
+				</section>
       </section>
-      <section class="text-block">
-				<h1>Amazing!</h1>
-				<p>Your event is already scheduled</p>
-			</section>
 		</main>
+		<script>
+			setTimeout(() => {
+				window.location = '/events'
+			}, 2000)
+		</script>
 
 	</div>
 	<footer>

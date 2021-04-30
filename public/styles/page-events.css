@@ -1,3 +1,8 @@
+#container header a:nth-child(2){
+  position: relative;
+  left: 1.5rem;
+}
+
 #container main {
   width: 100%;
   min-height: 70vh;
@@ -38,6 +43,7 @@
   top: 50%;
   right: 10%;
   transform: translateY(-50%);
+  pointer-events: none;
 }
 
 #container .events-container {
@@ -57,6 +63,7 @@
 
 #container .event-container header {
   margin-bottom: 1.5rem;
+  left: 0;
 }
 
 #container .event-container header h2 {
@@ -80,6 +87,43 @@
 #container .event-container p span {
   color: var(--color-primary);
   font-weight: 600;
+}
+
+#container #warning-without-events {
+  padding: 10% 20%;
+  color: #4f4f4f;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#container #warning-without-events p {
+  text-align: center;
+  font-size: 2rem;
+}
+
+#container #warning-without-events a {
+  color: #4f4f4f;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  border: solid 1px #4f4f4f;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  transition: .2s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#container #warning-without-events a:hover {
+  color: var(--color-secondary);
+  border: solid 1px var(--color-secondary);
+  transition: .2s;
 }
 
 @media(min-width: 760px) {
