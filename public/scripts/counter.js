@@ -51,6 +51,16 @@ function counter(eventName, targetDate) {
       const start = new Date();
       const end = new Date(year, month, day, hour, min);
       const elapsedTime = Math.round((end.getTime() - start.getTime())/1000);
+
+      if(elapsedTime < 0) {
+        main.secsCamp.innerHTML = '0'
+        main.minsCamp.innerHTML = '0'
+        main.hoursCamp.innerHTML = '0'
+        main.daysCamp.innerHTML = '0'
+        main.monthsCamp.innerHTML = '0'
+
+        return undefined
+      }
     
       return elapsedTime;
     },
@@ -137,7 +147,13 @@ function counter(eventName, targetDate) {
     },
   
     makesItWork() {
-      main.seconds = main.findTheRemainingTimeInSeconds(main.targetDate);
+      const seconds = main.findTheRemainingTimeInSeconds(main.targetDate)
+
+      if(seconds == undefined) {
+        return
+      }
+
+      main.seconds = seconds;
       main.minutes = main.secondsToMinutesAndMinutesToHours(main.seconds)[0];
       main.seconds = main.secondsToMinutesAndMinutesToHours(main.seconds)[1];
       main.hours = main.secondsToMinutesAndMinutesToHours(main.minutes)[0];
