@@ -97,6 +97,22 @@ const routes = {
     res.render('page-sucess.html')
   },
 
+  async deleteEvent(req, res) {
+    try {
+
+      const eventID = req.query.id
+      const db = await database
+      await db.all(`DELETE FROM events WHERE id=${eventID}`)
+
+      res.redirect('/events')
+
+    } catch (error) {
+
+      res.send("Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues")
+      
+    }
+  },
+
   pageTest(req, res) {
       res.render('test.html', { fakedata })
   }

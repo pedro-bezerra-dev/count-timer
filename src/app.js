@@ -25,6 +25,7 @@ app.post('/create-event', routes.createEvent)
 app.get('/event', routes.pageEvent)
 app.get('/events', routes.pageEvents)
 app.get('/sucess', routes.pageSucess)
+app.get('/delete', routes.deleteEvent)
 app.get('/test', routes.pageTest)
 
 app.listen(port, () => {
