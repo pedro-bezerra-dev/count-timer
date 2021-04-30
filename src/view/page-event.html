@@ -6,12 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Count Time | Your Event Manager</title>
 
-	<link rel="shortcut icon" href="/public/images/logo.svg" type="image/x-icon">
-	<link rel="stylesheet" href="/public/styles/main.css">
-	<link rel="stylesheet" href="/public/styles/header.css">
-	<link rel="stylesheet" href="/public/styles/page-event.css">
-	<link rel="stylesheet" href="/public/styles/animations.css">
-	<link rel="stylesheet" href="/public/styles/buttons.css">
+	<link rel="shortcut icon" href="/images/logo.svg" type="image/x-icon">
+	<link rel="stylesheet" href="/styles/main.css">
+	<link rel="stylesheet" href="/styles/header.css">
+	<link rel="stylesheet" href="/styles/page-event.css">
+	<link rel="stylesheet" href="/styles/animations.css">
+	<link rel="stylesheet" href="/styles/buttons.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
 </head>
@@ -19,10 +19,10 @@
 	<div id="container">
 		<header class="slidetodown">
 			<a onclick="history.back()" class="header-back-button">
-				<img src="/public/images/arrow-back.svg" alt="link to back">
+				<img src="/images/arrow-back.svg" alt="link to back">
 			</a>
-			<a href="./index.html">Count<br><span>Timer</span></a>
-      <a href="./page-events.html" class="header-button">My Events</a>
+			<a href="/">Count<br><span>Timer</span></a>
+      <a href="events" class="header-button">My Events</a>
 		</header>
 
 		<main class="slidetoright">
@@ -49,16 +49,19 @@
           <p class="unit-description">Second(s)</p>
         </div>
       </section>
-      <p>before starting the <span>event_name</span></p>
+      <p>before starting the <span>{{ event.name }}</span></p>
 			<section class="buttons">
-				<a href="page-events.html" type="button" class="button-left">
+				<a href="/delete?id={{ event.id }}" type="button" class="button-left">
 					<p>TIRED OF WAITING</p>
 				</a>
-				<a href="page-create-event.html" type="button" class="button-right">
+				<a href="create-event" type="button" class="button-right">
 					<p>CHANGE DATE</p>
 				</a>
 			</section>
 		</main>
+
+		<input type="hidden" id="event-name" value="{{ event.name }}">
+		<input type="hidden" id="event-date" value="{{ event.date }}">
 
 	</div>
 	<footer>
@@ -67,6 +70,43 @@
 		</section>
 	</footer>
 
-	<script src="/public/scripts/counter.js"></script>
+	<script type="module">
+
+		import { counter } from '/scripts/counter.js'
+		
+		const eventName = document.querySelector('#event-name').value;
+		const eventDate = document.querySelector('#event-date').value;
+		counter(eventName, eventDate)
+
+	</script>
+
+	{% for event in allEvents %}
+	<input type="hidden" id="event-name{{ event.id }}" value="{{ event.name }}">
+	<input type="hidden" id="target-date{{ event.id }}" value="{{ event.date }}">
+	{% endfor %}
+
+	<script type="module">
+
+	import { counter } from '/scripts/counterHidden.js'
+	import { handlingBackendData } from '/scripts/savingValues.js'
+	import { notifier, checkPermission } from '/scripts/notifier.js'
+
+	// checking permission to send notifications
+	checkPermission()
+
+	// arrays for event names and dates
+	var eventsNames = [];
+	var eventsDates = [];
+
+	// saving all event data that came from the backend
+	handlingBackendData(eventsNames, eventsDates)
+
+	// generating a counter for each event
+	// targetDate = [year, months, days, hours, minutes] | contains the date data of the event and comes from the server
+	eventsDates.forEach((targetDate, index) => {
+		counter(eventsNames[index], targetDate);
+	})
+
+	</script>
 </body>
 </html>

@@ -13,22 +13,14 @@ function defineMinimumDateLimit() {
   }
   
   const minDate = currentFullYear + '-' + currentMonth + '-' + currentDay;
-  const dateInput = document.querySelector('#event-date');
-  dateInput.min = minDate;
+  return minDate;
 }
 
 function defineMinimumHourLimit() {
   const currentHour = new Date().getHours();
   const minHour = (currentHour + 1).toString() + ':00';
 
-  const hourInput = document.querySelector('#event-hour');
-  hourInput.min = minHour;
-
-  setTimeout(() => {
-    if(hourInput.value < minHour) {
-      alert('Please choose a time later than that.')
-    }
-  },2000)
+  return minHour;
 }
 
 defineMinimumDateLimit();

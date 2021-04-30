@@ -1,0 +1,26 @@
+{
+  "name": "count-timer",
+  "version": "1.0.0",
+  "description": "This repository contains an application that manages your future events such as meetings, parties, lectures, etc. Of course, with a nice interface.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedro-henrique-sb/count-time.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pedro-henrique-sb/count-time/issues"
+  },
+  "homepage": "https://github.com/pedro-henrique-sb/count-time#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "nunjucks": "^3.2.3",
+    "sqlite-async": "^1.1.1"
+  }
+}

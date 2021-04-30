@@ -1,3 +1,5 @@
+import { notifier } from './notifier.js'
+
 function counter(eventName, targetDate) {
 
   if(typeof(targetDate) == "string") {
@@ -13,12 +15,6 @@ function counter(eventName, targetDate) {
     days: null,
     months: null,
     interval: null,
-
-    secsCamp: document.querySelector('#second-value'),
-    minsCamp: document.querySelector('#minute-value'),
-    hoursCamp: document.querySelector('#hour-value'),
-    daysCamp: document.querySelector('#day-value'),
-    monthsCamp: document.querySelector('#month-value'),
   
     secondsToMinutesAndMinutesToHours(arg) {
       const result = Math.floor(arg / 60);
@@ -53,11 +49,11 @@ function counter(eventName, targetDate) {
       const elapsedTime = Math.round((end.getTime() - start.getTime())/1000);
 
       if(elapsedTime < 0) {
-        main.secsCamp.innerHTML = '0'
-        main.minsCamp.innerHTML = '0'
-        main.hoursCamp.innerHTML = '0'
-        main.daysCamp.innerHTML = '0'
-        main.monthsCamp.innerHTML = '0'
+        main.seconds = 0
+        main.minutes = 0
+        main.hours = 0
+        main.days = 0
+        main.months = 0
 
         return undefined
       }
@@ -66,17 +62,12 @@ function counter(eventName, targetDate) {
     },
   
     subSeconds() {
-      main.secsCamp.innerHTML = main.seconds;
-      main.minsCamp.innerHTML = main.minutes;
-      main.hoursCamp.innerHTML = main.hours;
-      main.daysCamp.innerHTML = main.days;
-      main.monthsCamp.innerHTML = main.months;
-    
       if(main.seconds > 0) {
         main.seconds -= 1;
       } else {
         if(main.minutes == 0 && main.hours == 0 && main.days == 0 && main.months == 0) {
           clearInterval(main.interval);
+          notifier({title: "It's time!", body: `The ${main.eventName} already arrived!`, icon: 'images/logo.svg'})
         } else {
           main.seconds = 59;
           main.subMinutes();
@@ -133,18 +124,6 @@ function counter(eventName, targetDate) {
         return;
       };
     },
-
-    hideMonthsField() {
-      const secondsField = document.querySelector('#counter #second-unit');
-      const minutesField = document.querySelector('#counter #minute-unit');
-      const daysField = document.querySelector('#counter #day-value');
-      const monthsField = document.querySelector('#counter #month-unit');
-    
-      secondsField.style.display = 'flex';
-      minutesField.style.color = 'var(--color-secondary)';
-      daysField.style.border = 'none';
-      monthsField.style.display = 'none';
-    },
   
     makesItWork() {
       const seconds = main.findTheRemainingTimeInSeconds(main.targetDate)
@@ -162,10 +141,6 @@ function counter(eventName, targetDate) {
       main.hours = main.hoursToDays(main.hours)[1];
       main.months = main.daysToMonths(main.days)[0];
       main.days = main.daysToMonths(main.days)[1];
-      
-      if(main.months == 0) {
-        main.hideMonthsField();
-      };
   
       main.interval = setInterval(() => main.subSeconds(), 1000);
     }
