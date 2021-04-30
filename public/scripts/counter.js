@@ -1,5 +1,3 @@
-import { notifier } from './notifier.js'
-
 function counter(eventName, targetDate) {
 
   if(typeof(targetDate) == "string") {
@@ -69,7 +67,6 @@ function counter(eventName, targetDate) {
       } else {
         if(main.minutes == 0 && main.hours == 0 && main.days == 0 && main.months == 0) {
           clearInterval(main.interval);
-          notifier({title: "It's time!", body: `The ${main.eventName} already arrived!`, icon: 'images/logo.svg'})
         } else {
           main.seconds = 59;
           main.subMinutes();
