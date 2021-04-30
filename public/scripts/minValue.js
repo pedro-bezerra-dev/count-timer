@@ -18,7 +18,8 @@ function defineMinimumDateLimit() {
 
 function defineMinimumHourLimit() {
   const currentHour = new Date().getHours();
-  const minHour = (currentHour + 1).toString() + ':00';
+  const currentMin = new Date().getMinutes();
+  const minHour = currentHour.toString() + (currentMin + 2).toString();
 
   return minHour;
 }
