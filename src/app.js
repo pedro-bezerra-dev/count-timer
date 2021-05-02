@@ -1,9 +1,9 @@
 // server
 const express = require('express');
+const nunjucks = require('nunjucks');
 
 const app = express();
 const port = 3000;
-const nunjucks = require('nunjucks');
 const routes = require('./routes.js');
 
 // configuring template engine
