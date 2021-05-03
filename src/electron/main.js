@@ -4,14 +4,14 @@ const path = require('path')
 function createWindow() {
   const win = new BrowserWindow({
     autoHideMenuBar: true,
-    icon: path.join(__dirname, '../', 'public', 'images', 'logo.svg'),
+    icon: path.join(__dirname, '../', '../', 'public', 'images', 'logo.png'),
     webPreferences: {
       nodeIntegration: true,
       devTools: false
     }
   })
 
-  win.loadFile('src/view/index.html')
+  win.loadURL('http://localhost:3000/')
 }
 
 app.whenReady().then(() => {
