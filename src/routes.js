@@ -1,7 +1,7 @@
-const fakedata = require('./database/fakedata.js');
-const dataConverter = require('./utils/manipulatingData.js');
-const database = require('./database/dbInit.js');
-const createEvent = require('./database/createEvent.js');
+const path = require('path')
+const fakedata = require(path.join(__dirname, 'database', 'fakedata.js'));
+const dataConverter = require(path.join(__dirname, 'utils', 'manipulatingData.js'));
+const createEvent = require(path.join(__dirname, 'database', 'createEvent.js'));
 
 const routes = {
   async index(req, res) {
