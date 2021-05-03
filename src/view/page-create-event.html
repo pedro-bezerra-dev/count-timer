@@ -32,14 +32,16 @@
             <label for="event-name">Event Name</label>
             <input type="text" name="name" id="event-name" required>
           </div>
-          <div class="input-block event-date">
-            <label for="event-date">Event Date</label>
-            <input type="date" name="date" id="event-date" required>
-          </div>
-          <div class="input-block event-hour">
-            <label for="event-hour">Event Hour</label>
-            <input type="time" name="hour" id="event-hour" required>
-          </div>
+          <section class="date-hour">
+						<div class="input-block event-date">
+							<label for="event-date">Event Date</label>
+							<input type="date" name="date" id="event-date" required>
+						</div>
+						<div class="input-block event-hour">
+							<label for="event-hour">Event Hour</label>
+							<input type="time" name="hour" id="event-hour" required>
+						</div>
+					</section>
         </fieldset>
         <button class="button-submit" type="submit">CREATE EVENT</button>
       </form>

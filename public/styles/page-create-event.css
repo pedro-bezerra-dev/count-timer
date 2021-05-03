@@ -21,6 +21,18 @@
   border-radius: 1.5rem;
 }
 
+#container main .create-event-form .date-hour {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+#container main .create-event-form .date-hour .input-block {
+  width: 100%;
+}
+
 #container main .create-event-form .input-block {
   margin-bottom: 2rem;
   display: flex;
@@ -89,14 +101,9 @@
     width: 70%;
   }
 
-  #container .create-event-form fieldset {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 4rem;
-    grid-template-areas: 
-    "event-name event-name"
-    "event-date event-hour";
+  #container main .create-event-form .date-hour {
+    flex-direction: row;
+    column-gap: 5rem;
   }
 
   #container .create-event-form fieldset .input-block.event-name {
