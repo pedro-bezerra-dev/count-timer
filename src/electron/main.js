@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
+const startServer = require(path.join(__dirname, '../', 'app.js'))
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -15,6 +16,7 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
+  startServer()
   createWindow()
 
   app.on('activate', () => {
