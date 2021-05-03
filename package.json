@@ -2,9 +2,9 @@
   "name": "count-timer",
   "version": "1.0.0",
   "description": "This repository contains an application that manages your future events such as meetings, parties, lectures, etc. Of course, with a nice interface.",
-  "main": "src/app.js",
+  "main": "src/electron/main.js",
   "scripts": {
-    "start": "nodemon src/app.js"
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
