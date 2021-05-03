@@ -15,6 +15,8 @@ function createWindow() {
   win.loadURL('http://localhost:3000/')
 }
 
+app.name = 'Count Timer'
+
 app.whenReady().then(() => {
   startServer()
   createWindow()
