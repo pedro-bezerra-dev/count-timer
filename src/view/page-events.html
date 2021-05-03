@@ -30,14 +30,14 @@
 
         {% for event in events %}
 
-        <section class="event-container">
-          <a href="/event?id={{ event.id }}">
+				<a href="/event?id={{ event.id }}">
+        	<section class="event-container">
             <header>
               <h2>{{ event.name }}</h2>
             </header>
-            <p>Click on the event to see more details</p>
-          </a>
-        </section>
+            <p>Click to see more details</p>
+					</section>
+				</a>
 
         {% else %}
 

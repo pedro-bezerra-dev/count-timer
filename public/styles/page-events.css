@@ -12,6 +12,10 @@
   margin-top: 2.5rem;
 }
 
+#container .events-container a {
+  text-decoration: none;
+}
+
 #container .event-container {
   background: var(--color-tertiary);
   padding: 2rem;
@@ -31,19 +35,14 @@
 #container .event-container header h2 {
   font-weight: 600;
   line-height: 2.4rem;
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin: 0;
-}
-
-#container .event-container header a {
-  font-size: 1.4rem;
   color: var(--color-primary);
-  transition: .2s;
 }
 
-#container .event-container header a:hover {
-  opacity: .75;
-  transition: .2s;
+#container .event-container p {
+  font-size: 1.4rem;
+  color: var(--color-secondary);
 }
 
 #container #warning-without-events {
