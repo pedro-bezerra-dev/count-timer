@@ -2,13 +2,14 @@ function startServer() {
   // server
   const express = require('express');
   const nunjucks = require('nunjucks');
+  const path = require('path')
 
   const app = express();
   const port = 3000;
-  const routes = require('./routes.js');
+  const routes = require(path.join(__dirname, 'routes.js'));
 
   // configuring template engine
-  nunjucks.configure('src/view', {
+  nunjucks.configure(path.join(__dirname, 'view'), {
     autoescape: true,
     express: app,
   });
