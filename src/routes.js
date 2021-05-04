@@ -7,12 +7,24 @@ const database = require(path.join(__dirname, 'database', 'dbInit.js'));
 const routes = {
   async index(req, res) {
     try {
-      const db = await database;
-      const allEvents = await db.all('SELECT * FROM events');
+      // const db = await database;
+      // const allEvents = await db.all('SELECT * FROM events');
+
+      const allEvents = database.then((db) => {
+        db.all('SELECT * FROM events')
+      }).catch((error) => {
+        res.send(`Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues
+
+        Error is: ${error}
+        `);
+      })
 
       res.render('index.html', { allEvents });
     } catch (error) {
-      res.send("Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues");
+      res.send(`Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues
+
+      Error is: ${error}
+      `);
     }
   },
 
@@ -22,7 +34,10 @@ const routes = {
       const allEvents = await db.all('SELECT * FROM events');
       res.render('page-create-event.html', { allEvents });
     } catch (error) {
-      res.send("Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues");
+      res.send(`Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues
+
+      Error is: ${error}
+      `);
     }
   },
 
@@ -35,7 +50,10 @@ const routes = {
       const db = await database;
       await createEvent(db, eventName, eventDate);
     } catch (error) {
-      res.send("Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues");
+      res.send(`Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues
+
+      Error is: ${error}
+      `);
     }
 
     res.redirect('/sucess');
@@ -50,7 +68,10 @@ const routes = {
 
       res.render('page-event.html', { event: event[0], allEvents });
     } catch (error) {
-      res.send("Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues");
+      res.send(`Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues
+
+      Error is: ${error}
+      `);
     }
   },
 
@@ -62,7 +83,10 @@ const routes = {
 
       res.render('page-events.html', { events, allEvents: events });
     } catch (error) {
-      res.send("Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues");
+      res.send(`Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues
+
+      Error is: ${error}
+      `);
     }
   },
 
@@ -78,7 +102,10 @@ const routes = {
 
       res.redirect('/events');
     } catch (error) {
-      res.send("Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues");
+      res.send(`Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report us on our page: https://github.com/pedro-henrique-sb/count-timer/issues
+
+      Error is: ${error}
+      `);
     }
   },
 

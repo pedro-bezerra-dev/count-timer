@@ -1,32 +1,69 @@
 {
   "name": "count-timer",
+  "productName": "Count Timer",
   "version": "1.0.0",
   "description": "This repository contains an application that manages your future events such as meetings, parties, lectures, etc. Of course, with a nice interface.",
+  "license": "MIT",
   "main": "src/electron/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pedro-henrique-sb/count-time.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "MIT",
+  "author": "Pedro Henrique",
+  "email": "pyter.dev@gmail.com",
   "bugs": {
     "url": "https://github.com/pedro-henrique-sb/count-time/issues"
   },
   "homepage": "https://github.com/pedro-henrique-sb/count-time#readme",
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
     "express": "^4.17.1",
     "nunjucks": "^3.2.3",
     "sqlite-async": "^1.1.1"
   },
   "devDependencies": {
     "electron": "^12.0.6",
+    "electron-builder": "^22.10.5",
     "eslint": "^7.25.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "nodemon": "^2.0.7"
+  },
+  "build": {
+    "appId": "com.electron.count-timer",
+    "dmg": {
+      "title": "Count Timer",
+      "icon": "./public/images/icons-icns/logo.icns",
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "maintainer": "Pedro Henrique",
+      "icon": "./public/images/icons-png/logo256x256.png",
+      "category": "Utility",
+      "executableName": "Count Time",
+      "target": [
+        "appImage"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "./public/images/icons-ico/logo.ico"
+    }
   }
 }
