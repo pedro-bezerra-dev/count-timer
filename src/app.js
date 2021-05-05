@@ -15,7 +15,7 @@ function startServer() {
   });
 
   // static files
-  app.use(express.static('public'));
+  app.use(express.static(path.join(__dirname, '../', 'public')));
 
   // allowing encrypted requests
   app.use(express.urlencoded({ extended: true }));
