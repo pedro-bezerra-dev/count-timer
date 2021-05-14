@@ -60,8 +60,7 @@
       "category": "Utility",
       "executableName": "Count Timer",
       "target": [
-        "deb",
-        "rpm"
+        "deb"
       ]
     },
     "win": {
