@@ -7,6 +7,7 @@
   "main": "src/electron/main.js",
   "scripts": {
     "start": "electron .",
+    "test": "nodemon public/scripts/test.js",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
@@ -28,11 +29,11 @@
     "sqlite-async": "^1.1.1"
   },
   "devDependencies": {
-    "electron": "^12.0.6",
+    "electron": "^12.0.7",
     "electron-builder": "^22.10.5",
-    "eslint": "^7.25.0",
+    "eslint": "^7.26.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-import": "^2.23.0",
     "nodemon": "^2.0.7"
   },
   "build": {

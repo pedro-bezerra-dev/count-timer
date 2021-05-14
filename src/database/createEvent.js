@@ -1,5 +1,5 @@
-async function addEvent(db, name, date) {
-  await db.run(`
+function addEvent(db, name, date) {
+  return db.run(`
     INSERT INTO events (
       name,
       date
@@ -7,7 +7,7 @@ async function addEvent(db, name, date) {
       "${name}",
       "${date}"
     );
-  `);
+  `)
 }
 
 module.exports = addEvent;
