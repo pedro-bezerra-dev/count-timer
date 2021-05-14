@@ -1,36 +1,19 @@
 const path = require('path')
 const fakedata = require(path.join(__dirname, 'database', 'fakedata.js'));
 const dataConverter = require(path.join(__dirname, 'utils', 'manipulatingData.js'));
-const createEvent = require(path.join(__dirname, 'database', 'createEvent.js'));
-const database = require(path.join(__dirname, 'database', 'dbInit.js'));
+const { addEvent, searchEvent , deleteEvent , getAllEvents } = require(path.join(__dirname, 'database', 'functions.js'));
 
 const routes = {
   index(req, res) {
-    database.then((db) => {
-      db.all('SELECT * FROM events').then((allEvents) => {
-        res.render('index.html', { allEvents });
-      })
-    }).catch((error) => {
-      res.send(`
-      Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report the error to us on our page: https://github.com/pedro-henrique-sb/count-timer/issues
-      
-      The error is: ${error}
-      `)
-    })
+    const allEvents = getAllEvents()
+
+    res.render('index.html', { allEvents });
   },
 
   pageCreateEvent(req, res) {
-    database.then((db) => {
-      db.all('SELECT * FROM events').then((allEvents) => {
-        res.render('page-create-event.html', { allEvents });
-      })
-    }).catch((error) => {
-      res.send(`
-      Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report the error to us on our page: https://github.com/pedro-henrique-sb/count-timer/issues
-      
-      The error is: ${error}
-      `)
-    })
+    const allEvents = getAllEvents()
+
+    res.render('page-create-event.html', { allEvents });
   },
 
   createEvent(req, res) {
@@ -38,48 +21,23 @@ const routes = {
     const eventName = eventData.name;
     const eventDate = dataConverter(eventData);
 
-    database.then((db) => {
-      createEvent(db, eventName, eventDate).then(() => {
-        res.redirect('/sucess');
-      })
-    }).catch((error) => {
-      res.send(`
-        Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report the error to us on our page: https://github.com/pedro-henrique-sb/count-timer/issues
-      
-        The error is: ${error}
-      `)
-    })
+    addEvent(eventName, eventDate)
+
+    res.redirect('/sucess');
   },
 
   pageEvent(req, res) {
     const eventID = req.query.id;
-    database.then((db) => {
-      db.all(`SELECT * FROM events WHERE id=${eventID}`).then(([ event ]) => {
-        db.all('SELECT * FROM events').then((allEvents) => {
-          res.render('page-event.html', { event, allEvents });
-        })
-      })
-    }).catch((error) => {
-      res.send(`
-        Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report the error to us on our page: https://github.com/pedro-henrique-sb/count-timer/issues
-      
-        The error is: ${error}
-      `)
-    });
+    const [ event ] = searchEvent(eventID)
+    const allEvents = getAllEvents()
+
+    res.render('page-event.html', { event, allEvents });
   },
 
   pageEvents(req, res) {
-    database.then((db) => {
-      db.all('SELECT * FROM events').then((allEvents) => {
-        res.render('page-events.html', { events: allEvents, allEvents });
-      })
-    }).catch((error) => {
-      res.send(`
-      Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report the error to us on our page: https://github.com/pedro-henrique-sb/count-timer/issues
-      
-      The error is: ${error}
-      `)
-    })
+    const allEvents = getAllEvents()
+
+    res.render('page-events.html', { events: allEvents, allEvents });
   },
 
   pageSucess(req, res) {
@@ -88,17 +46,9 @@ const routes = {
 
   deleteEvent(req, res) {
     const eventID = req.query.id;
-    database.then((db) => {
-      db.all(`DELETE FROM events WHERE id=${eventID}`).then(() => {
-        res.redirect('/events');
-      })
-    }).catch((error) => {
-      res.send(`
-      Oops! It looks like an error has occurred. Please try restarting the app. If that doesn't work please could you report the error to us on our page: https://github.com/pedro-henrique-sb/count-timer/issues
-      
-      The error is: ${error}
-      `)
-    })
+    deleteEvent(eventID)
+
+    res.redirect('/events');
   },
 
   pageTest(req, res) {

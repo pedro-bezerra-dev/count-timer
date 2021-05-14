@@ -12,6 +12,6 @@ This repository contains an application that manages your future events such as 
 
 - [Node.js](https://nodejs.org)
 - [Express](https://expressjs.com)
-- [Nunjucks](https://mozilla.github.io/nunjucks/)
-- [SQLite-async](https://www.npmjs.com/package/sqlite-async)
+- [better-sqlite3](https://github.com/JoshuaWise/better-sqlite3)
 - [Electron](https://electronjs.org)
+- [Nunjucks](https://mozilla.github.io/nunjucks/)

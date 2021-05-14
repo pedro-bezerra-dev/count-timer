@@ -1,13 +1,17 @@
-const database = require('sqlite-async');
+function init() {
+  const Database = require('better-sqlite3')
 
-function createDatabase(db) {
-  return db.exec(`
-    CREATE TABLE IF NOT EXISTS events (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT,
-      date TEXT
-    );
+  const db = new Database('./main.db', { verbose: console.log })
+
+  db.exec(`
+      CREATE TABLE IF NOT EXISTS events (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        date TEXT
+      );
   `);
+
+  return db
 }
 
-module.exports = database.open(`${__dirname}/database.sqlite`).then((db) => createDatabase(db)).catch((err) => console.log(err));
+module.exports = { init }

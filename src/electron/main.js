@@ -5,7 +5,7 @@ const startServer = require(path.join(__dirname, '../', 'app.js'))
 function createWindow() {
   const win = new BrowserWindow({
     autoHideMenuBar: true,
-    icon: path.join(__dirname, '../', '../', 'public', 'images', 'logo.png'),
+    icon: path.join(__dirname, '../', '../', 'public', 'images', 'icons-png', '256x256.png'),
     webPreferences: {
       nodeIntegration: true,
       devTools: false

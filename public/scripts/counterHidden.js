@@ -67,7 +67,7 @@ function counter(eventName, targetDate) {
       } else {
         if(main.minutes == 0 && main.hours == 0 && main.days == 0 && main.months == 0) {
           clearInterval(main.interval);
-          notifier({title: "It's time!", body: `The ${main.eventName} already arrived!`, icon: 'images/logo.png'})
+          notifier({title: "It's time!", body: `The ${main.eventName} already arrived!`, icon: 'images/icons-png/logo.png'})
         } else {
           main.seconds = 59;
           main.subMinutes();

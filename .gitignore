@@ -110,4 +110,4 @@ test.css
 fakedata.js
 
 # SQLite database
-database.sqlite
+main.db
