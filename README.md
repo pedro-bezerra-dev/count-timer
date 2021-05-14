@@ -1,4 +1,4 @@
-<section style="display:flex; align-items:center; justify-content:space-between; flex-direction:column; padding: 20px">
+<section align="center">
 
   <img src="./public/images/logo.svg" width="100px">
 
