@@ -109,7 +109,7 @@ test.css
 fakedata.js
 
 # SQLite database
-main.db
+.count-timer.db
 
 # Package folder
 out/
