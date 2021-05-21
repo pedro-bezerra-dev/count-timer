@@ -1,6 +1,5 @@
 {
   "name": "count-timer",
-  "productName": "Count Timer",
   "version": "1.0.0",
   "description": "This repository contains an application that manages your future events such as meetings, parties, lectures, etc. Of course, with a nice interface.",
   "license": "MIT",
@@ -8,8 +7,8 @@
   "scripts": {
     "start": "electron .",
     "test": "nodemon public/scripts/test.js",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "repository": {
     "type": "git",
@@ -29,43 +28,55 @@
     "nunjucks": "^3.2.3"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.55",
+    "@electron-forge/maker-deb": "^6.0.0-beta.55",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.55",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.55",
+    "@electron-forge/maker-zip": "^6.0.0-beta.55",
     "electron": "^12.0.7",
-    "electron-builder": "^22.10.5",
     "electron-rebuild": "^2.3.5",
     "eslint": "^7.26.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.23.0",
-    "nodemon": "^2.0.7"
+    "eslint-plugin-import": "^2.23.0"
   },
-  "build": {
-    "appId": "com.electron.count-timer",
-    "dmg": {
-      "title": "Count Timer",
-      "icon": "./public/images/icons-icns/logo.icns",
-      "contents": [
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
         {
-          "x": 110,
-          "y": 150
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "count_timer"
+          }
         },
         {
-          "x": 240,
-          "y": 150,
-          "path": "/Applications"
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ],
+          "config": {
+            "icon": "./public/images/icons-icns/logo.icns",
+            "contents": [
+              {
+                "x": 110,
+                "y": 150
+              },
+              {
+                "x": 240,
+                "y": 150,
+                "path": "/Applications"
+              }
+            ]
+          }
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {
+            "category": "Utility",
+            "icon":"public/images/icons-png/256x256.png"
+          }
         }
       ]
-    },
-    "linux": {
-      "maintainer": "Pedro Henrique",
-      "icon": "./public/images/icons-png/256x256.png",
-      "category": "Utility",
-      "executableName": "Count Timer",
-      "target": [
-        "appImage"
-      ]
-    },
-    "win": {
-      "target": "NSIS",
-      "icon": "./public/images/icons-ico/logo.ico"
     }
   }
 }
