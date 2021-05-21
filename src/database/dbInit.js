@@ -1,7 +1,7 @@
 function init() {
   const Database = require('better-sqlite3')
 
-  const db = new Database('./main.db', { verbose: console.log })
+  const db = new Database('./.main.db', { verbose: console.log })
 
   db.exec(`
       CREATE TABLE IF NOT EXISTS events (
