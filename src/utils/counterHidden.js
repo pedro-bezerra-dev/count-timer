@@ -1,4 +1,5 @@
-import { notifier } from './notifier.js'
+const path = require('path')
+const { notifier } = require(path.join(__dirname, 'notifier.js'))
 
 function counter(eventName, targetDate) {
 
