@@ -150,5 +150,4 @@ function counter(eventName, targetDate) {
   main.makesItWork();
 }
 
-
-export { counter };
+module.exports = { counter };
