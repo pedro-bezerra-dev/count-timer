@@ -11,4 +11,4 @@ function notifier({ title, body, icon}) {
   new Notification(newNotification).show()
 }
 
-export { notifier };
+module.exports = { notifier };
