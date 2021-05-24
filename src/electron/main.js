@@ -3,7 +3,7 @@ const path = require('path')
 const startServer = require(path.join(__dirname, '../', 'app.js'))
 const { getAllEvents } = require(path.join(__dirname, '../', 'database', 'functions.js'))
 const allEvents = getAllEvents()
-const { main: managerEvents } = require(path.join(__dirname, 'managerEvents.js'))
+const { main: managerEvents } = require(path.join(__dirname, '../', 'utils', 'managerEvents.js'))
 
 function createWindow() {
   const win = new BrowserWindow({
