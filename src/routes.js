@@ -2,6 +2,7 @@ const path = require('path')
 const fakedata = require(path.join(__dirname, 'database', 'fakedata.js'));
 const dataConverter = require(path.join(__dirname, 'utils', 'manipulatingData.js'));
 const { addEvent, searchEvent , deleteEvent , getAllEvents } = require(path.join(__dirname, 'database', 'functions.js'));
+const { main: managerEvents } = require(path.join(__dirname, 'utils', 'managerEvents.js'))
 
 const routes = {
   index(req, res) {
@@ -21,7 +22,7 @@ const routes = {
     const eventName = eventData.name;
     const eventDate = dataConverter(eventData);
 
-    addEvent(eventName, eventDate)
+    const eventId = addEvent(eventName, eventDate)
 
     res.redirect('/sucess');
   },
