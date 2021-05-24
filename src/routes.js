@@ -22,7 +22,7 @@ const routes = {
     const eventName = eventData.name;
     const eventDate = dataConverter(eventData);
 
-    const eventId = addEvent(eventName, eventDate)
+    addEvent(eventName, eventDate)
     counter(eventName, eventDate)
 
     res.redirect('/sucess');
