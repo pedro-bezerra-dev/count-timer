@@ -12,7 +12,8 @@ function addEvent(name, date) {
     );
   `)
 
-  addEvent.run({name, date})
+  const eventId = addEvent.run({name, date})
+  return eventId
 }
 
 function searchEvent(eventID) {
