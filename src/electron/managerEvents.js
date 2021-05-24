@@ -3,7 +3,10 @@ const { counter } = require(path.join(__dirname, '../', 'utils', 'counterHidden.
 
 function main(allEvents) {
   allEvents.forEach((event) => {
-    console.log(event)
+    const eventName = event.name
+    const eventDate = event.date
+
+    counter(eventName, eventDate)
   })
 }
 
