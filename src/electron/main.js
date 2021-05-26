@@ -22,4 +22,5 @@ app.whenReady().then(() => {
 
 app.on('window-all-closed', () => {
   app.relaunch()
+  app.quit()
 })
