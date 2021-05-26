@@ -26,8 +26,6 @@ app.whenReady().then(() => {
   setTray()
   managerEvents(allEvents)
 
-  // createWindow()
-
   app.on('activate', () => {
     if(BrowserWindow.getAllWindows().length === 0) {
       createWindow()
