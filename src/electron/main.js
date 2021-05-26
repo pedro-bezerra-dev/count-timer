@@ -6,19 +6,6 @@ const allEvents = getAllEvents()
 const { main: managerEvents } = require(path.join(__dirname, '../', 'utils', 'managerEvents.js'))
 const { main: setTray } = require(path.join(__dirname, 'tray.js'))
 
-function createWindow() {
-  const win = new BrowserWindow({
-    autoHideMenuBar: true,
-    icon: path.join(__dirname, '../', '../', 'public', 'images', 'icons-png', '256x256.png'),
-    webPreferences: {
-      nodeIntegration: true,
-      devTools: false
-    }
-  })
-
-  win.loadURL('http://localhost:3000/')
-}
-
 app.name = 'Count Timer'
 
 app.whenReady().then(() => {
