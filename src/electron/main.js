@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Tray, Menu } = require('electron')
+const { app } = require('electron')
 const path = require('path')
 const startServer = require(path.join(__dirname, '../', 'app.js'))
 const { getAllEvents } = require(path.join(__dirname, '../', 'database', 'functions.js'))
