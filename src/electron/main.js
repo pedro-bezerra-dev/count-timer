@@ -8,6 +8,10 @@ const { main: setTray } = require(path.join(__dirname, 'tray.js'))
 
 app.name = 'Count Timer'
 
+if(process.platform === 'darwin') {
+  app.dock.hide()
+}
+
 app.whenReady().then(() => {
   startServer()
   setTray()
