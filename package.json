@@ -9,7 +9,10 @@
     "test": "nodemon public/scripts/test.js",
     "postinstall": "./node_modules/.bin/electron-rebuild",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "make:linux": "electron-forge make --platform linux --targets deb",
+    "make:mac": "electron-forge make --platform darwin",
+    "make:win": "electron-forge make --platform win32"
   },
   "repository": {
     "type": "git",
