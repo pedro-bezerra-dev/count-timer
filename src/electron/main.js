@@ -32,5 +32,7 @@ app.whenReady().then(() => {
 })
 
 app.on('window-all-closed', () => {
-  worker()
+  // worker()
+  app.relaunch()
+  console.log(BrowserWindow.getAllWindows().length)
 })
