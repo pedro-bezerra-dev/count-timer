@@ -1,4 +1,4 @@
-const { BrowserWindow, Menu, Tray } = require('electron')
+const { app, BrowserWindow, Menu, Tray } = require('electron')
 const path = require('path')
 
 function createWindow(route) {
