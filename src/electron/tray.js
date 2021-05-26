@@ -1,6 +1,8 @@
 const { app, BrowserWindow, Menu, Tray } = require('electron')
 const path = require('path')
 
+let tray = null
+
 function createWindow(route) {
   const win = new BrowserWindow({
     autoHideMenuBar: true,
@@ -15,7 +17,8 @@ function createWindow(route) {
 }
 
 function main() {
-  const tray = new Tray(path.join(__dirname, '../', '../', 'public', 'images', 'icons-png', 'logo.png'))
+  tray = new Tray(path.join(__dirname, '../', '../', 'public', 'images', 'icons-png', 'logo.png'))
+
   const mainMenu = Menu.buildFromTemplate([
     { label: 'Create event', type: 'normal', click: () => {
       createWindow('create-event')
