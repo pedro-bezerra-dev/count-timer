@@ -23,7 +23,9 @@ app.name = 'Count Timer'
 
 app.whenReady().then(() => {
   startServer()
+  setTray()
   managerEvents(allEvents)
+
   // createWindow()
 
   app.on('activate', () => {
