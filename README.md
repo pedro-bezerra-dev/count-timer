@@ -27,6 +27,8 @@ THIS IS NOT A COMMERCIAL APPLICATION. THEREFORE IT IS NOT THE RESPONSIBILITY OF 
 - [Linux (.deb)](https://github.com/pedro-henrique-sb/count-timer/releases/latest)
 - [MacOS (.app)](https://github.com/pedro-henrique-sb/count-timer/releases/latest)
 
+### or generate your own executable
+
 Remember that to generate an executable for this program you need to have Nodejs, npm and git installed. If not, search for reliable sources on how to install them.
 
 With that done open your terminal and execute the following commands:
