@@ -5,11 +5,29 @@ const { getAllEvents } = require(path.join(__dirname, '../', 'database', 'functi
 const allEvents = getAllEvents()
 const { main: managerEvents } = require(path.join(__dirname, '../', 'utils', 'managerEvents.js'))
 const { main: setTray } = require(path.join(__dirname, 'tray.js'))
+const AutoLaunch = require('auto-launch')
 
 app.name = 'Count Timer'
 
 if(process.platform === 'darwin') {
   app.dock.hide()
+}
+
+if(process.platform === 'win32' || process.platform === 'darwin') {
+  app.setLoginItemSettings({ openAtLogin: true})
+}
+
+if(process.platform === 'linux') {
+  let autoLaunch = new AutoLaunch({
+    name: 'Count Timer'
+  })
+
+  autoLaunch.enable()
+  autoLaunch.isEnabled().then((isEnabled) => {
+    if(!isEnabled) {
+      autoLaunch.enable()
+    }
+  })
 }
 
 app.whenReady().then(() => {
