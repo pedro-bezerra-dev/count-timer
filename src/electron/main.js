@@ -17,6 +17,19 @@ if(process.platform === 'win32' || process.platform === 'darwin') {
   app.setLoginItemSettings({ openAtLogin: true})
 }
 
+if(process.platform === 'linux') {
+  let autoLaunch = new AutoLaunch({
+    name: 'Count Timer'
+  })
+
+  autoLaunch.enable()
+  autoLaunch.isEnabled().then((isEnabled) => {
+    if(!isEnabled) {
+      autoLaunch.enable()
+    }
+  })
+}
+
 app.whenReady().then(() => {
   startServer()
   setTray()
