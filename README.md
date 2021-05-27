@@ -18,6 +18,11 @@ This repository contains an application that manages your future events such as 
 
 ## How to install it
 
+### Download the executables to
+
+- [Linux (.deb)](https://github.com/pedro-henrique-sb/count-timer/releases/latest)
+- [MacOS (.app)](https://github.com/pedro-henrique-sb/count-timer/releases/latest)
+
 ```text
 THIS IS NOT A COMMERCIAL APPLICATION. THEREFORE IT IS NOT THE RESPONSIBILITY OF THE CREATOR OR MAINTAINERS TO PAY THE RESPONSIBILITIES FOR ANY ERRORS OR PROBLEMS THAT WILL HAPPEN TO HAPPEN WITH THE USE OF THE SAME. SO, BY INSTALLING IT, YOU AGREE TO TAKE TOTAL RISK WITH ANY UNEXPECTED PROBLEM THAT MAY ARISE.
 ```
