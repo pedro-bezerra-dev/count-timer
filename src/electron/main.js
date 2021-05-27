@@ -12,6 +12,10 @@ if(process.platform === 'darwin') {
   app.dock.hide()
 }
 
+if(process.platform === 'win32' || process.platform === 'darwin') {
+  app.setLoginItemSettings({ openAtLogin: true})
+}
+
 app.whenReady().then(() => {
   startServer()
   setTray()
