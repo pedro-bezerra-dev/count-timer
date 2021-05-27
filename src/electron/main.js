@@ -5,6 +5,7 @@ const { getAllEvents } = require(path.join(__dirname, '../', 'database', 'functi
 const allEvents = getAllEvents()
 const { main: managerEvents } = require(path.join(__dirname, '../', 'utils', 'managerEvents.js'))
 const { main: setTray } = require(path.join(__dirname, 'tray.js'))
+const AutoLaunch = require('auto-launch')
 
 app.name = 'Count Timer'
 
