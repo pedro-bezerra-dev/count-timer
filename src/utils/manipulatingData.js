@@ -15,8 +15,14 @@ function dataJoin(eventData) {
   return eventDate;
 }
 
-function dataPart(date) {
-  
+function dataPart(data) {
+  let date = data.subString(0, 10)
+  date = date.replace(/-/g, '-')
+
+  let hour = data.subString(11)
+  hour = hour.replace(',', ':')
+
+  return { date, hour }
 }
 
 module.exports = dataJoin;
