@@ -54,7 +54,7 @@ const routes = {
   },
 
   pageUpdate(req, res) {
-    res.render('page-create-event.html', { allEvents });
+    res.render('page-create-event.html');
   },
 
   pageTest(req, res) {
