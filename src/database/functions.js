@@ -38,4 +38,4 @@ function getAllEvents() {
   return allEvents
 }
 
-module.exports = { addEvent, searchEvent, deleteEvent , getAllEvents }
+module.exports = { addEvent, updateEvent, searchEvent, deleteEvent , getAllEvents }
