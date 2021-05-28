@@ -15,6 +15,16 @@ function addEvent(name, date) {
   addEvent.run({name, date})
 }
 
+function updateEvent(id, name, date) {
+  const updateEvent = db.prepare(`
+    UPDATE events
+    SET name=@name, date=@date
+    WHERE id=@id
+  `)
+
+  updateEvent.run({id, name, date})
+}
+
 function searchEvent(eventID) {
   return db.prepare(`SELECT * FROM events WHERE id=${eventID}`).all()
 }
