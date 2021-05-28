@@ -6,14 +6,10 @@ const { counter } = require(path.join(__dirname, 'utils', 'counterHidden.js'))
 
 const routes = {
   index(req, res) {
-    const allEvents = getAllEvents()
-
     res.render('index.html');
   },
 
   pageCreateEvent(req, res) {
-    const allEvents = getAllEvents()
-
     res.render('page-create-event.html');
   },
 
@@ -33,13 +29,13 @@ const routes = {
     const [ event ] = searchEvent(eventID)
     const allEvents = getAllEvents()
 
-    res.render('page-event.html');
+    res.render('page-event.html', { event });
   },
 
   pageEvents(req, res) {
     const allEvents = getAllEvents()
 
-    res.render('page-events.html');
+    res.render('page-events.html', { events: allEvents });
   },
 
   pageSucess(req, res) {
@@ -55,7 +51,7 @@ const routes = {
 
   pageUpdate(req, res) {
     const id = req.query
-    let [{ name, date }] = searchEvent(1)
+    let [{ name, date }] = searchEvent(id)
     let { apartedDate, hour } = dataPart(date)
     const eventUpdate = {
       id,
