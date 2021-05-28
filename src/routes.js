@@ -1,7 +1,7 @@
 const path = require('path')
 const fakedata = require(path.join(__dirname, 'database', 'fakedata.js'));
 const { dataJoin, dataPart } = require(path.join(__dirname, 'utils', 'manipulatingData.js'));
-const { addEvent, searchEvent , deleteEvent , getAllEvents } = require(path.join(__dirname, 'database', 'functions.js'));
+const { addEvent, updateEvent, searchEvent , deleteEvent , getAllEvents } = require(path.join(__dirname, 'database', 'functions.js'));
 const { counter } = require(path.join(__dirname, 'utils', 'counterHidden.js'))
 
 const routes = {
