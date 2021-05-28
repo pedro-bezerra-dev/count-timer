@@ -16,13 +16,19 @@ function dataJoin(eventData) {
 }
 
 function dataPart(data) {
-  let apartedDate = data.substring(0, 10)
-  apartedDate = apartedDate.replace(/,/g, '-')
+  let date = data.substring(0, 10)
+  date = date.split(',')
+
+  let month = Number(date[1]) + 1
+  month = `0${String(month)}`
+
+  date.splice(1, 1, month)
+  date = date.join('-')
 
   let hour = data.substring(11)
   hour = hour.replace(',', ':')
 
-  return { apartedDate, hour }
+  return { apartedDate: date, hour }
 }
 
 module.exports = { dataJoin, dataPart};
