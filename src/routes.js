@@ -53,6 +53,10 @@ const routes = {
     res.redirect('/events');
   },
 
+  pageUpdate(req, res) {
+    res.render('page-create-event.html', { allEvents });
+  },
+
   pageTest(req, res) {
     res.render('test.html', { fakedata });
   },
