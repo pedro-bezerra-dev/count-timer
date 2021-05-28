@@ -65,10 +65,11 @@ const routes = {
 
   updateEvent(req, res) {
     const eventData = req.body;
+    const id = eventData.id
     const eventName = eventData.name;
     const eventDate = dataJoin(eventData);
 
-    updateEvent(eventName, eventDate)
+    updateEvent(id, eventName, eventDate)
     counter(eventName, eventDate)
 
     res.redirect('/sucess');
