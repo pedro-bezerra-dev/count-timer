@@ -29,6 +29,7 @@ function startServer() {
   app.get('/sucess', routes.pageSucess);
   app.get('/delete', routes.deleteEvent);
   app.get('/update', routes.pageUpdate);
+  app.post('/update', routes.updateEvent);
   app.get('/test', routes.pageTest);
 
   app.listen(port);
