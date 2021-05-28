@@ -54,6 +54,8 @@ const routes = {
   },
 
   pageUpdate(req, res) {
+    const { id, eventName, eventDate } = req.query
+
     res.render('page-create-event.html');
   },
 
