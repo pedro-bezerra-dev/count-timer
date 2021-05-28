@@ -63,6 +63,17 @@ const routes = {
     res.render('page-create-event.html', { eventUpdate });
   },
 
+  updateEvent(req, res) {
+    const eventData = req.body;
+    const eventName = eventData.name;
+    const eventDate = dataJoin(eventData);
+
+    updateEvent(eventName, eventDate)
+    counter(eventName, eventDate)
+
+    res.redirect('/sucess');
+  },
+
   pageTest(req, res) {
     res.render('test.html', { fakedata });
   },
