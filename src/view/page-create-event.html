@@ -80,5 +80,22 @@
 			<a href="https://github.com/pedro-henrique-sb/" target="_blank">pedro_dev 2021 ©</a>
 		</section>
 	</footer>
+
+	<script type='module'>
+
+		import { defineMinimumDateLimit, defineMinimumHourLimit } from '/scripts/minValue.js'
+
+		// setting limits for the date and time of new events
+		const minDate = defineMinimumDateLimit()
+		const minHour = defineMinimumHourLimit()
+
+		const inputDate = document.querySelector('#event-date')
+		const inputHour = document.querySelector('#event-hour')
+
+		inputDate.min = minDate
+		inputHour.min = minHour
+
+	</script>
+
 </body>
 </html>
