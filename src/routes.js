@@ -50,7 +50,7 @@ const routes = {
   },
 
   pageUpdate(req, res) {
-    const id = req.query
+    const { id } = req.query
     let [{ name, date }] = searchEvent(id)
     let { apartedDate, hour } = dataPart(date)
     const eventUpdate = {
