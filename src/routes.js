@@ -54,9 +54,17 @@ const routes = {
   },
 
   pageUpdate(req, res) {
-    const { id, eventName, eventDate } = req.query
+    const id = req.query
+    let [{ name, date }] = searchEvent(1)
+    let { apartedDate, hour } = dataPart(date)
+    const eventUpdate = {
+      id,
+      name,
+      date: apartedDate,
+      hour
+    }
 
-    res.render('page-create-event.html');
+    res.render('page-create-event.html', { eventUpdate });
   },
 
   pageTest(req, res) {
