@@ -5,7 +5,7 @@ function startServer() {
   const path = require('path')
 
   const app = express();
-  const port = 3000;
+  const port = 7676;
   const routes = require(path.join(__dirname, 'routes.js'));
 
   // configuring template engine
