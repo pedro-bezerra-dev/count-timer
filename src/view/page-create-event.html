@@ -32,18 +32,19 @@
 					<fieldset>
 						<div class="input-block event-name">
 							<label for="event-name">Event Name</label>
-							<input type="text" name="name" id="event-name" value='{{ eventUpdate.name }}' required>
+							<input type="text" name="name" id="event-name" value="{{ eventUpdate.name }}" required>
 						</div>
 						<section class="date-hour">
 							<div class="input-block event-date">
 								<label for="event-date">Event Date</label>
-								<input type="date" name="date" id="event-date" value='{{ eventUpdate.date }}' required>
+								<input type="date" name="date" id="event-date" value="{{ eventUpdate.date }}" required>
 							</div>
 							<div class="input-block event-hour">
 								<label for="event-hour">Event Hour</label>
-								<input type="time" name="hour" id="event-hour" value='{{ eventUpdate.hour }}' required>
+								<input type="time" name="hour" id="event-hour" value="{{ eventUpdate.hour }}" required>
 							</div>
 						</section>
+						<input type="hidden" name="id" value="{{ eventUpdate.id }}">
 					</fieldset>
 					<button class="button-submit" type="submit">UPDATE EVENT</button>
 				</form>
