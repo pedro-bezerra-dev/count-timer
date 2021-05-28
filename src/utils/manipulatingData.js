@@ -15,4 +15,8 @@ function dataJoin(eventData) {
   return eventDate;
 }
 
+function dataPart(date) {
+  
+}
+
 module.exports = dataJoin;
