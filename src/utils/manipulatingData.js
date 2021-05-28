@@ -25,4 +25,4 @@ function dataPart(data) {
   return { date, hour }
 }
 
-module.exports = dataJoin;
+module.exports = { dataJoin, dataPart};
