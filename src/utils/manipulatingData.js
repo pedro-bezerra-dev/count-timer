@@ -1,4 +1,4 @@
-function dataConverter(eventData) {
+function dataJoin(eventData) {
   let date = eventData.date.split('-');
 
   let month = Number(date[1]);
@@ -15,4 +15,4 @@ function dataConverter(eventData) {
   return eventDate;
 }
 
-module.exports = dataConverter;
+module.exports = dataJoin;
