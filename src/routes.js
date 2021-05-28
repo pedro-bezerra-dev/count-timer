@@ -8,13 +8,13 @@ const routes = {
   index(req, res) {
     const allEvents = getAllEvents()
 
-    res.render('index.html', { allEvents });
+    res.render('index.html');
   },
 
   pageCreateEvent(req, res) {
     const allEvents = getAllEvents()
 
-    res.render('page-create-event.html', { allEvents });
+    res.render('page-create-event.html');
   },
 
   createEvent(req, res) {
@@ -33,13 +33,13 @@ const routes = {
     const [ event ] = searchEvent(eventID)
     const allEvents = getAllEvents()
 
-    res.render('page-event.html', { event, allEvents });
+    res.render('page-event.html');
   },
 
   pageEvents(req, res) {
     const allEvents = getAllEvents()
 
-    res.render('page-events.html', { events: allEvents, allEvents });
+    res.render('page-events.html');
   },
 
   pageSucess(req, res) {
