@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 function handlingBackendData(eventsNames, eventsDates) {
   const allInputs = document.querySelectorAll('input[type="hidden"]');
 

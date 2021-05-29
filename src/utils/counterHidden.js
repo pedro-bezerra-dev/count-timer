@@ -89,8 +89,6 @@ function counter(eventName, targetDate) {
     },
 
     subHours() {
-      // main.minutes, main.hours, main.days, main.months;
-
       if (main.hours > 0) {
         main.hours -= 1;
       } else if (main.days == 0 && main.months == 0) {

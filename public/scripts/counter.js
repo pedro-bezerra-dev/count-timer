@@ -1,3 +1,6 @@
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable eqeqeq */
+/* eslint-disable no-param-reassign */
 function counter(eventName, targetDate) {
   if (typeof (targetDate) === 'string') {
     targetDate = targetDate.split(',');
@@ -93,8 +96,6 @@ function counter(eventName, targetDate) {
     },
 
     subHours() {
-      main.minutes, main.hours, main.days, main.months;
-
       if (main.hours > 0) {
         main.hours -= 1;
       } else if (main.days == 0 && main.months == 0) {
@@ -144,14 +145,10 @@ function counter(eventName, targetDate) {
       }
 
       main.seconds = seconds;
-      main.minutes = main.secondsToMinutesAndMinutesToHours(main.seconds)[0];
-      main.seconds = main.secondsToMinutesAndMinutesToHours(main.seconds)[1];
-      main.hours = main.secondsToMinutesAndMinutesToHours(main.minutes)[0];
-      main.minutes = main.secondsToMinutesAndMinutesToHours(main.minutes)[1];
-      main.days = main.hoursToDays(main.hours)[0];
-      main.hours = main.hoursToDays(main.hours)[1];
-      main.months = main.daysToMonths(main.days)[0];
-      main.days = main.daysToMonths(main.days)[1];
+      [main.minutes, main.seconds] = main.secondsToMinutesAndMinutesToHours(main.seconds);
+      [main.hours, main.minutes] = main.secondsToMinutesAndMinutesToHours(main.minutes);
+      [main.days, main.hours] = main.hoursToDays(main.hours);
+      [main.months, main.days] = main.daysToMonths(main.days);
 
       if (main.months == 0) {
         main.hideMonthsField();

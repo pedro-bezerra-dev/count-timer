@@ -1,9 +1,10 @@
+/* eslint-disable import/extensions */
 const { init } = require('./dbInit.js');
 
 const db = init();
 
 function addEvent(name, date) {
-  const addEvent = db.prepare(`
+  const newEvent = db.prepare(`
     INSERT INTO events (
       name,
       date
@@ -13,17 +14,17 @@ function addEvent(name, date) {
     );
   `);
 
-  addEvent.run({ name, date });
+  newEvent.run({ name, date });
 }
 
 function updateEvent(id, name, date) {
-  const updateEvent = db.prepare(`
+  const updatedEvent = db.prepare(`
     UPDATE events
     SET name=@name, date=@date
     WHERE id=@id
   `);
 
-  updateEvent.run({ id, name, date });
+  updatedEvent.run({ id, name, date });
 }
 
 function searchEvent(eventID) {
