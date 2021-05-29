@@ -1,8 +1,12 @@
-const path = require('path')
+/* eslint-disable import/no-dynamic-require */
+const path = require('path');
+
 const fakedata = require(path.join(__dirname, 'database', 'fakedata.js'));
 const { dataJoin, dataPart } = require(path.join(__dirname, 'utils', 'manipulatingData.js'));
-const { addEvent, updateEvent, searchEvent , deleteEvent , getAllEvents } = require(path.join(__dirname, 'database', 'functions.js'));
-const { counter } = require(path.join(__dirname, 'utils', 'counterHidden.js'))
+const {
+  addEvent, updateEvent, searchEvent, deleteEvent, getAllEvents,
+} = require(path.join(__dirname, 'database', 'functions.js'));
+const { counter } = require(path.join(__dirname, 'utils', 'counterHidden.js'));
 
 const routes = {
   index(req, res) {
@@ -18,22 +22,21 @@ const routes = {
     const eventName = eventData.name;
     const eventDate = dataJoin(eventData);
 
-    addEvent(eventName, eventDate)
-    counter(eventName, eventDate)
+    addEvent(eventName, eventDate);
+    counter(eventName, eventDate);
 
     res.redirect('/sucess');
   },
 
   pageEvent(req, res) {
     const eventID = req.query.id;
-    const [ event ] = searchEvent(eventID)
-    const allEvents = getAllEvents()
+    const [event] = searchEvent(eventID);
 
     res.render('page-event.html', { event });
   },
 
   pageEvents(req, res) {
-    const allEvents = getAllEvents()
+    const allEvents = getAllEvents();
 
     res.render('page-events.html', { events: allEvents });
   },
@@ -44,33 +47,33 @@ const routes = {
 
   deleteEvent(req, res) {
     const eventID = req.query.id;
-    deleteEvent(eventID)
+    deleteEvent(eventID);
 
     res.redirect('/events');
   },
 
   pageUpdate(req, res) {
-    const { id } = req.query
-    let [{ name, date }] = searchEvent(id)
-    let { apartedDate, hour } = dataPart(date)
+    const { id } = req.query;
+    const [{ name, date }] = searchEvent(id);
+    const { apartedDate, hour } = dataPart(date);
     const eventUpdate = {
       id,
       name,
       date: apartedDate,
-      hour
-    }
+      hour,
+    };
 
     res.render('page-create-event.html', { eventUpdate });
   },
 
   updateEvent(req, res) {
     const eventData = req.body;
-    const id = eventData.id
+    const { id } = eventData;
     const eventName = eventData.name;
     const eventDate = dataJoin(eventData);
 
-    updateEvent(id, eventName, eventDate)
-    counter(eventName, eventDate)
+    updateEvent(id, eventName, eventDate);
+    counter(eventName, eventDate);
 
     res.redirect('/sucess');
   },

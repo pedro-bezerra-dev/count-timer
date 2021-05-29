@@ -1,5 +1,6 @@
-const { init } = require('./dbInit.js')
-const db = init()
+const { init } = require('./dbInit.js');
+
+const db = init();
 
 function addEvent(name, date) {
   const addEvent = db.prepare(`
@@ -10,9 +11,9 @@ function addEvent(name, date) {
       @name,
       @date
     );
-  `)
+  `);
 
-  addEvent.run({name, date})
+  addEvent.run({ name, date });
 }
 
 function updateEvent(id, name, date) {
@@ -20,22 +21,24 @@ function updateEvent(id, name, date) {
     UPDATE events
     SET name=@name, date=@date
     WHERE id=@id
-  `)
+  `);
 
-  updateEvent.run({id, name, date})
+  updateEvent.run({ id, name, date });
 }
 
 function searchEvent(eventID) {
-  return db.prepare(`SELECT * FROM events WHERE id=${eventID}`).all()
+  return db.prepare(`SELECT * FROM events WHERE id=${eventID}`).all();
 }
 
 function deleteEvent(eventID) {
-  db.prepare(`DELETE FROM events WHERE id=${eventID}`).run()
+  db.prepare(`DELETE FROM events WHERE id=${eventID}`).run();
 }
 
 function getAllEvents() {
-  const allEvents = db.prepare('SELECT * FROM events').all()
-  return allEvents
+  const allEvents = db.prepare('SELECT * FROM events').all();
+  return allEvents;
 }
 
-module.exports = { addEvent, updateEvent, searchEvent, deleteEvent , getAllEvents }
+module.exports = {
+  addEvent, updateEvent, searchEvent, deleteEvent, getAllEvents,
+};

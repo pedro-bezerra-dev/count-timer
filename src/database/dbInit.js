@@ -1,7 +1,9 @@
+/* eslint-disable global-require */
 function init() {
-  const Database = require('better-sqlite3')
+  const Database = require('better-sqlite3');
 
-  const db = new Database('./.count-timer.db', { verbose: console.log })
+  // eslint-disable-next-line no-console
+  const db = new Database('./.count-timer.db', { verbose: console.log });
 
   db.exec(`
       CREATE TABLE IF NOT EXISTS events (
@@ -11,7 +13,7 @@ function init() {
       );
   `);
 
-  return db
+  return db;
 }
 
-module.exports = { init }
+module.exports = { init };

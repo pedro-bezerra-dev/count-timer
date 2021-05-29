@@ -1,14 +1,14 @@
-const { Notification } = require('electron')
+// eslint-disable-next-line import/no-extraneous-dependencies
+const { Notification } = require('electron');
 
-function notifier({ title, body, icon}) {
-
+function notifier({ title, body, icon }) {
   const newNotification = {
     title,
     body,
-    icon
-  }
+    icon,
+  };
 
-  new Notification(newNotification).show()
+  new Notification(newNotification).show();
 }
 
 module.exports = { notifier };

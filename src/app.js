@@ -1,8 +1,10 @@
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable global-require */
 function startServer() {
   // server
   const express = require('express');
   const nunjucks = require('nunjucks');
-  const path = require('path')
+  const path = require('path');
 
   const app = express();
   const port = 7676;
@@ -35,4 +37,4 @@ function startServer() {
   app.listen(port);
 }
 
-module.exports = startServer
+module.exports = startServer;
