@@ -1,6 +1,6 @@
 {
   "name": "count-timer",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "This repository contains an application that manages your future events such as meetings, parties, lectures, etc. Of course, with a nice interface.",
   "license": "MIT",
   "main": "src/electron/main.js",
