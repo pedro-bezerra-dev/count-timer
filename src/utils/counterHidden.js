@@ -70,7 +70,7 @@ function counter(eventName, targetDate) {
         main.seconds -= 1;
       } else if (main.minutes == 0 && main.hours == 0 && main.days == 0 && main.months == 0) {
         clearInterval(main.interval);
-        notifier({ title: "It's time!", body: `The ${main.eventName} already arrived!`, icon: `${path.join(__dirname, '../', '../', 'public', 'images', 'icons-png', 'logo.png')}` });
+        notifier({ title: `${main.eventName}`, body: 'The time for your event has arrived!', icon: `${path.join(__dirname, '../', '../', 'public', 'images', 'icons-png', 'logo.png')}` });
       } else {
         main.seconds = 59;
         main.subMinutes();
