@@ -7,6 +7,8 @@ function notifier({ title, body, icon }) {
     title,
     body,
     icon,
+    sound: `${path.join(__dirname, '../', '../', 'public', 'audio', 'notification-sound.mp3')}`,
+    urgency: 'critical',
   };
 
   new Notification(newNotification).show();
