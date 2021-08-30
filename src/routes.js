@@ -9,10 +9,6 @@ const {
 const { counter } = require(path.join(__dirname, 'utils', 'counterHidden.js'));
 
 const routes = {
-  index(req, res) {
-    res.render('index.html');
-  },
-
   pageCreateEvent(req, res) {
     res.render('page-create-event.html');
   },

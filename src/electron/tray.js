@@ -12,7 +12,7 @@ function createWindow(route) {
     icon: path.join(__dirname, '../', '../', 'public', 'images', 'icons-png', '256x256.png'),
     webPreferences: {
       nodeIntegration: true,
-      // devTools: false,
+      devTools: false,
     },
   });
 

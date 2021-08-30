@@ -1,83 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Count Time | Your Event Manager</title>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Count Time | Your Event Manager</title>
 
-	<link rel="shortcut icon" href="/images/logo.svg" type="image/x-icon">
-	<link rel="stylesheet" href="/styles/main.css">
-	<link rel="stylesheet" href="/styles/header.css">
-	<link rel="stylesheet" href="/styles/page-event.css">
-	<link rel="stylesheet" href="/styles/animations.css">
-	<link rel="stylesheet" href="/styles/buttons.css">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
-</head>
-<body>
-	<div id="container">
-		<header class="slidetodown">
-			<a onclick="history.back()" class="header-back-button">
-				<img src="/images/arrow-back.svg" alt="link to back">
-			</a>
-			<a href="/">Count<br><span>Timer</span></a>
-      <a href="events" class="header-button">My Events</a>
-		</header>
+		<link rel="shortcut icon" href="/images/logo.svg" type="image/x-icon">
+		<link rel="stylesheet" href="/styles/main.css">
+		<link rel="stylesheet" href="/styles/header.css">
+		<link rel="stylesheet" href="/styles/page-event.css">
+		<link rel="stylesheet" href="/styles/animations.css">
+		<link rel="stylesheet" href="/styles/buttons.css">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
+	</head>
+	<body>
+		<div id="container">
+			<header class="slidetodown">
+				<a onclick="history.back()" class="header-back-button">
+					<img src="/images/arrow-back.svg" alt="link to back">
+				</a>
+				<a href="/">Count<br><span>Timer</span></a>
+				<a href="events" class="header-button">My Events</a>
+			</header>
 
-		<main class="slidetoright">
-      <h1>You have<span>...</span></h1>
-      <section id="counter">
-        <div class="counter-unit" id="month-unit">
-          <h2 class="unit-value" id="month-value"></h2>
-          <p class="unit-description">Month(s)</p>
-        </div>
-        <div class="counter-unit" id="day-unit">
-          <h2 class="unit-value" id="day-value"></h2>
-          <p class="unit-description">Day(s)</p>
-        </div>
-        <div class="counter-unit" id="hour-unit">
-          <h2 class="unit-value" id="hour-value"></h2>
-          <p class="unit-description">Hour(s)</p>
-        </div>
-        <div class="counter-unit" id="minute-unit">
-          <h2 class="unit-value" id="minute-value"></h2>
-          <p class="unit-description">Minute(s)</p>
-        </div>
-				<div class="counter-unit" id="second-unit">
-          <h2 class="unit-value" id="second-value"></h2>
-          <p class="unit-description">Second(s)</p>
-        </div>
-      </section>
-      <p>before starting the <span>{{ event.name }}</span></p>
-			<section class="buttons">
-				<a href="/delete?id={{ event.id }}" type="button" class="button-left">
-					<p>TIRED OF WAITING</p>
-				</a>
-				<a href="/update?id={{ event.id }}" type="button" class="button-right">
-					<p>CHANGE DATE</p>
-				</a>
+			<main class="slidetoright">
+				<h1>You have<span>...</span></h1>
+				<section id="counter">
+					<div class="counter-unit" id="month-unit">
+						<h2 class="unit-value" id="month-value"></h2>
+						<p class="unit-description">Month(s)</p>
+					</div>
+					<div class="counter-unit" id="day-unit">
+						<h2 class="unit-value" id="day-value"></h2>
+						<p class="unit-description">Day(s)</p>
+					</div>
+					<div class="counter-unit" id="hour-unit">
+						<h2 class="unit-value" id="hour-value"></h2>
+						<p class="unit-description">Hour(s)</p>
+					</div>
+					<div class="counter-unit" id="minute-unit">
+						<h2 class="unit-value" id="minute-value"></h2>
+						<p class="unit-description">Minute(s)</p>
+					</div>
+					<div class="counter-unit" id="second-unit">
+						<h2 class="unit-value" id="second-value"></h2>
+						<p class="unit-description">Second(s)</p>
+					</div>
+				</section>
+				<p>before starting the <span>{{ event.name }}</span></p>
+				<section class="buttons">
+					<a href="/delete?id={{ event.id }}" type="button" class="button-left">
+						<p>TIRED OF WAITING</p>
+					</a>
+					<a href="/update?id={{ event.id }}" type="button" class="button-right">
+						<p>CHANGE DATE</p>
+					</a>
+				</section>
+			</main>
+
+			<input type="hidden" id="event-name" value="{{ event.name }}">
+			<input type="hidden" id="event-date" value="{{ event.date }}">
+
+		</div>
+		<footer>
+			<section>
+				<a href="https://github.com/pedro-henrique-sb/" target="_blank">pedro_dev 2021 ©</a>
 			</section>
-		</main>
+		</footer>
 
-		<input type="hidden" id="event-name" value="{{ event.name }}">
-		<input type="hidden" id="event-date" value="{{ event.date }}">
+		<script type="module">
 
-	</div>
-	<footer>
-		<section>
-			<a href="https://github.com/pedro-henrique-sb/" target="_blank">pedro_dev 2021 ©</a>
-		</section>
-	</footer>
+			import { counter } from '/scripts/counter.js'
+			
+			const eventName = document.querySelector('#event-name').value;
+			const eventDate = document.querySelector('#event-date').value;
+			counter(eventName, eventDate);
 
-	<script type="module">
-
-		import { counter } from '/scripts/counter.js'
-		
-		const eventName = document.querySelector('#event-name').value;
-		const eventDate = document.querySelector('#event-date').value;
-		counter(eventName, eventDate)
-
-	</script>
-</body>
+			if (document.querySelector('#second-value').textContent = '0') {
+				document.querySelector('.button-left p').innerHTML = 'DELETE EVENT'
+			}
+			
+		</script>
+	</body>
 </html>

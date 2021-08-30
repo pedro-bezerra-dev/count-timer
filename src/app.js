@@ -23,7 +23,7 @@ function startServer() {
   app.use(express.urlencoded({ extended: true }));
 
   // routes
-  app.get('/', routes.index);
+  app.get('/', routes.pageEvents);
   app.get('/create-event', routes.pageCreateEvent);
   app.post('/create-event', routes.createEvent);
   app.get('/event', routes.pageEvent);
