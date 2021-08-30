@@ -39,13 +39,6 @@ function main() {
     },
     { type: 'separator' },
     {
-      label: 'Open Count Timer',
-      type: 'normal',
-      click: () => {
-        createWindow('');
-      },
-    },
-    {
       label: 'Shut down Count Timer',
       type: 'normal',
       click: () => {
